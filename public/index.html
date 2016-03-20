@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+
+	<title>Mean Template</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/libs/Materialize/dist/css/materialize.min.css">
+	<link rel="stylesheet" href="/assets/libs/components-font-awesome/css/font-awesome.min.css">
+</head>
+<body ng-app="app">
+    <nav style="background-color: #34314c;">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <form>
+                        <div class="input-field">
+                        <input id="search" type="search" required>
+                        <label for="search"><i class="fa fa-search"></i></label>
+                        <i class="fa fa-close"></i>
+                        </div>
+                    </form>                
+                </li>
+                <li><button class="btn z-depth-0" style="background-color: #47b8e0;"><i class="fa fa-shopping-cart left" style="height:36px; line-height:36px;"></i>Cart</button></li>               
+            </ul>
+        </div>
+    </nav>
+	<div ui-view></div>
+    
+    <script src="assets/libs/angular/angular.min.js"></script>
+	<script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/Materialize/dist/js/materialize.min.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/app.config.js"></script>
+	<script src="app/main/home.js"></script>
+</body>
+</html>
