@@ -1,0 +1,42 @@
+html {
+    background-color: #f2f2f2;
+}
+
+.form-controls{
+    border-bottom: none !important;
+    color: #616d7d;
+    background: #38414c;
+    height: 26px !important;
+    line-height: 26px !important;
+    margin: 0px !important;
+    border-radius: 2px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.form-controls:focus{
+    background:white !important; 
+    border-bottom:none !important;
+    box-shadow: 0 0px 0 0 #26a69a !important;
+}
+
+.search { 
+    position: relative; 
+    background: transparent; 
+    height:36px; 
+    line-height:36px; 
+    margin-top:15px;
+    background:white !important; 
+    border-bottom:none !important;
+    box-shadow: 0 0px 0 0 #26a69a !important; 
+    border-radius:3px;
+    min-width: 200px;
+}
+.search input { text-indent: 30px;}
+.search .fa-search { 
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    font-size: 15px;
+    color: #47B8E0;
+}

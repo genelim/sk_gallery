@@ -14,9 +14,17 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
         controller: 'HomeController',
         controllerAs: 'vm'
     })
-    .state('sub', {
-        url:'/sub',
-        templateUrl: 'app/secondary/sub.html'
+    .state('more_collections', {
+        url:'/more_collections',
+        templateUrl: 'app/products/more_collections.html'
+    })
+    .state('product_details', {
+        url:'/product_details',
+        templateUrl: 'app/products/product_details.html'
+    })
+    .state('collection', {
+        url:'/collection',
+        templateUrl: 'app/products/collection.html'
     })
     
     $locationProvider.html5Mode({
