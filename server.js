@@ -3,7 +3,7 @@ var express        = require('express'),
     mongoose       = require('mongoose'),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override'),
-    port = process.env.PORT || 1000,
+    port = process.env.PORT || 1001,
     db = require('./config/db');
     
 mongoose.connect(db.url); 
