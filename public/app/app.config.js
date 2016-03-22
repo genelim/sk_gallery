@@ -26,6 +26,11 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
         url:'/collection',
         templateUrl: 'app/products/collection.html'
     })
+
+    .state('test', {
+        url:'/test',
+        templateUrl: 'app/test/test.html'
+    })
     
     $locationProvider.html5Mode({
         enabled: true

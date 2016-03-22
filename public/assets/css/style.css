@@ -1,5 +1,5 @@
 html {
-    background-color: #f2f2f2;
+    background-color: #ffffff;
 }
 
 .form-controls{
@@ -39,4 +39,27 @@ html {
     left: 7px;
     font-size: 15px;
     color: #47B8E0;
+}
+
+.fontheader{
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cardheader{
+    font-size: 160%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cardbody{
+    font-size: 120%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cardimage{
+    width: 100%;
+    height: 300px;
 }
