@@ -64,3 +64,13 @@ html {
     width: 100%;
     height: 300px;
 }
+
+.homecard{
+    height: 300px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.moreicon{
+    color: #ff7473;
+}
