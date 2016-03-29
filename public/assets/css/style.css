@@ -48,9 +48,12 @@ html {
 }
 
 .cardheader{
-    font-size: 160%;
+    font-size: 180%;
     font-weight: bold;
-    text-align: center;
+    margin-bottom: 0;
+    color: #34314C;
+    padding-right:10%;
+    height:60px;
 }
 
 .cardbody{

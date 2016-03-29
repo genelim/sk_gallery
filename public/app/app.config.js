@@ -31,6 +31,11 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
         url:'/test',
         templateUrl: 'app/test/test.html'
     })
+
+    .state('admin', {
+        url:'/admin',
+        templateUrl: 'app/admin/dashboard.html'
+    })
     
     $locationProvider.html5Mode({
         enabled: true
