@@ -20,7 +20,9 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
     })
     .state('product_details', {
         url:'/product_details',
-        templateUrl: 'app/products/product_details.html'
+        templateUrl: 'app/products/product_details.html',
+        controller: 'ProductDetailsController',
+        controllerAs: 'vm'
     })
     .state('collection', {
         url:'/collection',

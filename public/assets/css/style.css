@@ -64,8 +64,10 @@ html {
 }
 
 .cardimage{
-    width: 100%;
-    height: 300px;
+    width: initial !important;
+    margin: 0 auto !important;
+    height: 200px  !important;
+    max-width: none !important;
 }
 
 .homecard{
