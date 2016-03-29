@@ -70,6 +70,13 @@ html {
     max-width: none !important;
 }
 
+.category_image{
+    width: initial !important;
+    margin: 0 auto !important;
+    height: 150px  !important;
+    max-width: none !important;
+}
+
 .homecard{
     height: 300px;
     width: 100%;
