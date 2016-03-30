@@ -86,3 +86,30 @@ html {
 .moreicon{
     color: #ff7473;
 }
+
+.admin {
+    padding-left: 240px;
+}
+
+.admin_side_nav{
+    margin-top: 64px !important;
+    background-color: #47b8e0 !important;
+}
+
+.admin_side_nav li a{
+    color: #FFF !important;
+}
+
+.admin_side_nav li:hover{
+    background-color: #ff7473 !important;
+}
+
+.admin_side_nav li a:hover{
+    color: #FFF !important;
+}
+
+@media screen and (max-width: 992px) {
+    .admin {
+        padding-left: 0;
+    }
+}
