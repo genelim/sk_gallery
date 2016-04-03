@@ -6,5 +6,5 @@ AdminUserController.$inject = [];
 
 function AdminUserController(){ 
     var vm = this;
-    $('.modal-trigger').leanModal();  
+    $('.modal-trigger').leanModal();
 }
