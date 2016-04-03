@@ -33,7 +33,7 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
 
     .state('products', {
         url:'/products',
-        templateUrl: 'app/products/tesproductst.html'
+        templateUrl: 'app/products/products.html'
     })
     .state('admin', {
         url:'/admin',
@@ -42,20 +42,20 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
     .state('admin.dashboard', {
         url: '/dashboard',
         templateUrl: 'app/admin/dashboard.html',
-        // controller: 'AdminDashboardController',
-        // controllerAs: 'vm'
+        controller: 'AdminDashboardController',
+        controllerAs: 'vm'
     })
     .state('admin.user', {
         url: '/user',
         templateUrl: 'app/admin/user.html',
-        // controller: 'AdminUserController',
-        // controllerAs: 'vm'
+        controller: 'AdminUserController',
+        controllerAs: 'vm'
     })
     .state('admin.product', {
         url: '/product',
         templateUrl: 'app/admin/product.html',
-        // controller: 'AdminProductController',
-        // controllerAs: 'vm'
+        controller: 'AdminProductController',
+        controllerAs: 'vm'
     });
     
     $locationProvider.html5Mode({
