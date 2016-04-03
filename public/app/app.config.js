@@ -6,6 +6,8 @@ Configuration.$inject = ['$urlRouterProvider','$stateProvider','$locationProvide
 
 function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
     $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.when('/admin', '/admin/dashboard');
+    $urlRouterProvider.when('/admin/', '/admin/dashboard');
 
     $stateProvider
     .state('home', {
@@ -20,22 +22,41 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
     })
     .state('product_details', {
         url:'/product_details',
-        templateUrl: 'app/products/product_details.html'
+        templateUrl: 'app/products/product_details.html',
+        controller: 'ProductDetailsController',
+        controllerAs: 'vm'
     })
     .state('collection', {
         url:'/collection',
         templateUrl: 'app/products/collection.html'
     })
 
-    .state('test', {
-        url:'/test',
-        templateUrl: 'app/test/test.html'
+    .state('products', {
+        url:'/products',
+        templateUrl: 'app/products/products.html'
     })
-
     .state('admin', {
         url:'/admin',
-        templateUrl: 'app/admin/dashboard.html'
+        templateUrl: 'app/admin/admin.html',        
     })
+    .state('admin.dashboard', {
+        url: '/dashboard',
+        templateUrl: 'app/admin/dashboard.html',
+        controller: 'AdminDashboardController',
+        controllerAs: 'vm'
+    })
+    .state('admin.user', {
+        url: '/user',
+        templateUrl: 'app/admin/user.html',
+        controller: 'AdminUserController',
+        controllerAs: 'vm'
+    })
+    .state('admin.product', {
+        url: '/product',
+        templateUrl: 'app/admin/product.html',
+        controller: 'AdminProductController',
+        controllerAs: 'vm'
+    });
     
     $locationProvider.html5Mode({
         enabled: true
