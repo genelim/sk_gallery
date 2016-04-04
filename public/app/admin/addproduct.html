@@ -1,3 +1,30 @@
-<div class="row modal">
-    <div class="col l12"
+<div class="row modal" id="#addmaincat">
+    <div class="col l12">
+        <div class="col l6 z-depth-2">
+            <div class="modal-trigger circle" ui-sref="addmaincart"><i class="fa fa-plus fa-2x"></i></div>
+        </div>
+        <div class="col l6 input-field">
+            <div class="col l12">
+                <input id="productname" type="text" placeholder="Product Name:">
+                <label for="productname" class="active"></label>
+            </div>
+            <div class="col l4">
+                <input id="size" type="text" placeholder="Size:">
+                <label for="size"></label>
+            </div>
+            <div class="col l4">
+                <select>
+                    <option value="inches">Inches</option>
+                    <option value="pcs">Pieces</option>
+                    <option value="roll">Rolls</option>
+                    <option value="pkt">Packets</option>
+                    <option value="ctn">Cartons</option>
+                </select>
+                <label>Unit of Measurement</label>
+            </div>
+            <div class="col l2 offset-l10">
+                <div class="modal-trigger circle" ui-sref="addmaincart"><i class="fa check fa-2x"></i></div>
+            </div>
+        </div>
+    </div>
 </div>
