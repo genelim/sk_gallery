@@ -48,15 +48,29 @@ html {
     text-align: center;
 }
 
+.fontheader1{
+    font-size: 200%;
+    font-weight: bold;
+}
+
 .itemfont{
     font-size: 150%;
-    text-align: center;
 }
 
 .cardimage{
     width: 100%;
     height: 300px;
     float: left;
+}
+
+.cardimage1{
+    width: 100%;
+    height: 200px;
+    float: left;
+}
+
+.catimage{
+    margin-top:1%;
 }
 
 .homecard{
@@ -66,23 +80,23 @@ html {
 }
 
 .imagetext{
-    position: relative;
-    top: 370px;
-    left: 2%;
+    position:absolute;
+    bottom:0;
+    margin-left: 2%;
     color: white;
 }
 
 .imagetext2{
-    position: relative;
-    top: 310px;
-    left: 2%;
+    position: absolute;
+    bottom:0;
+    margin-left: 2%;
     color: white;
 }
 
 .imagetext3{
-    position: relative;
-    top: 280px;
-    left: 2%;
+    position: absolute;
+    bottom: 0;
+    margin-left: 2%;
     color: white;
 }
 

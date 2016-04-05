@@ -1,34 +1,46 @@
-<div class="row">
-    <div class="col l12">
-        <div class="col l12">
-            <div class="col l10"><h3 class="adminheader"><u>Main Category List</u></h3></div>
-            <div class="col l2">
-                <div class="modal-trigger circle" ui-sref="addmaincat"><i class="fa fa-plus fa-2x"></i></div>
+<div class="row ">
+    <div class="col s12">
+        <div class="title">
+            <h5 class="fontheader1"><u>Products</u></h5>
+            <div class="btn-group right">
+                <a class="btn btn-small green lighten-1 z-depth-0" ng-click="vm.add_product()"><i class="mdi mdi-content-add"></i></a>
+                <a class="btn btn-small red lighten-1 z-depth-0" ng-click="vm.delete_product()"><i class="mdi mdi-action-delete"></i></a>
             </div>
         </div>
-        <div class="col l4">
-            <a href="/subcategory" class="catimage">
-                <h5 class="imagetext2"><b>Guestroom Supplies</b></h5>
-                <img class="activator responsive-img cardimage z-depth-2" src="/assets/images/Bedroom/2.jpeg">
-            </a>
-        </div>
-        <div class="col l4">
-            <a href="/subcategory" class="catimage">
-                <h5 class="imagetext2"><b>Guestroom Amenities</b></h5>
-                <img class="activator responsive-img cardimage z-depth-2" src="/assets/images/Bedroom/2.jpeg">
-            </a>
-        </div>
-        <div class="col l4">
-            <a href="/subcategory" class="catimage">
-                <h5 class="imagetext2"><b>Bath & Bedroom Linens</b></h5>
-                <img class="activator responsive-img cardimage z-depth-2" src="/assets/images/Bedroom/2.jpeg">
-            </a>
-        </div>
-        <div class="col l4">
-            <a href="/subcategory" class="catimage">
-                <h5 class="imagetext2"><b>Banquet & Conferenceroom</b></h5>
-                <img class="activator responsive-img cardimage z-depth-2" src="/assets/images/Bedroom/2.jpeg">
-            </a>
+        <div class="content">
+            <table class="highlight">
+                <thead>
+                <tr ng-if="vm.products[0]._id">
+                    <th data-field="">Select</th>
+                    <th data-field="sku">SKU</th>
+                    <th data-field="image">Image</th>
+                    <th data-field="name">Product Name</th>
+                    <th data-field="stock">Stock</th>
+                    <th data-field="price">Price</th>
+                    <th data-field="status">Status</th>
+                    <th data-field="">Action</th>
+                </tr>
+                <tr ng-if="!vm.products[0]._id">
+                    <td data-field=""><b>No Product Available.</b> <i>Click on the green plus sign button to add a new product</i></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="product in vm.products">
+                    <th><input type="checkbox" ng-model="product.selected" id="{{product._id}}" /><label for="{{product._id}}"></label></th>
+                    <th>{{product.sku}}</th>
+                    <td><img ng-src="{{product.image[0]}}" style="height:50px; width:auto;" class="responsive-img"></td>
+                    <td><strong class="grey-text text-darken-2">{{product.name}}</strong><br/>
+                        <label class="grey-text" ng-bind-html="product.description">
+                        </label>
+                    </td>
+                    <td>{{product.quantity}}</td>
+                    <td>${{product.price}}</td>
+                    <td class="green-text">{{product.status}}</td>
+                    <td class="btn-group"><a ng-click="vm.view_product(product)" class="btn btn-small z-depth-0 blue lighten-1"><i class="mdi mdi-editor-mode-edit"></i></a>
+                        <a class="btn btn-small z-depth-0 grey lighten-1"><i class="fa fa-info"></i></a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
