@@ -1,46 +1,171 @@
 <div class="row ">
-    <div class="col s12">
+    <div class="col l12">
         <div class="title">
-            <h5 class="fontheader1"><u>Products</u></h5>
-            <div class="btn-group right">
-                <a class="btn btn-small green lighten-1 z-depth-0" ng-click="vm.add_product()"><i class="mdi mdi-content-add"></i></a>
-                <a class="btn btn-small red lighten-1 z-depth-0" ng-click="vm.delete_product()"><i class="mdi mdi-action-delete"></i></a>
+            <h5 class="fontheader1"><u>Product Management</u></h5>
+            <div class="right">
+                <div class="col l12">
+                    <a class="btn modal-trigger" href="#additem" style="background-color:#ffc952"><i class="mdi mdi-content-add"></i></a>
+                    <a class="btn" style="background-color:#ff7473"><i class="mdi mdi-action-delete"></i></a>
+                </div>
             </div>
         </div>
-        <div class="content">
+        <div class="col l12">
             <table class="highlight">
                 <thead>
-                <tr ng-if="vm.products[0]._id">
-                    <th data-field="">Select</th>
-                    <th data-field="sku">SKU</th>
-                    <th data-field="image">Image</th>
-                    <th data-field="name">Product Name</th>
-                    <th data-field="stock">Stock</th>
-                    <th data-field="price">Price</th>
-                    <th data-field="status">Status</th>
-                    <th data-field="">Action</th>
-                </tr>
-                <tr ng-if="!vm.products[0]._id">
-                    <td data-field=""><b>No Product Available.</b> <i>Click on the green plus sign button to add a new product</i></td>
-                </tr>
+                    <tr>
+                        <th data-field="">Select</th>
+                        <th data-field="image">Image</th>
+                        <th data-field="name">Product Name</th>
+                        <th data-field="color">Color</th>
+                        <th data-field="size">Size</th>
+                        <th data-field="">Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="product in vm.products">
-                    <th><input type="checkbox" ng-model="product.selected" id="{{product._id}}" /><label for="{{product._id}}"></label></th>
-                    <th>{{product.sku}}</th>
-                    <td><img ng-src="{{product.image[0]}}" style="height:50px; width:auto;" class="responsive-img"></td>
-                    <td><strong class="grey-text text-darken-2">{{product.name}}</strong><br/>
-                        <label class="grey-text" ng-bind-html="product.description">
-                        </label>
-                    </td>
-                    <td>{{product.quantity}}</td>
-                    <td>${{product.price}}</td>
-                    <td class="green-text">{{product.status}}</td>
-                    <td class="btn-group"><a ng-click="vm.view_product(product)" class="btn btn-small z-depth-0 blue lighten-1"><i class="mdi mdi-editor-mode-edit"></i></a>
-                        <a class="btn btn-small z-depth-0 grey lighten-1"><i class="fa fa-info"></i></a></td>
-                </tr>
+                    <tr>
+                        <td><input type="checkbox" id="test1"><label for="test1"></label></td>
+                        <td><img class="responsive-img" style="height:200px" src="/assets/images/Bedroom/1.jpg"></td>
+                        <td>Super Single Size Bedsheet</td>
+                        <td>White</td>
+                        <td>90 x 110 Inches</td>
+                        <td><a class="btn modal-trigger" href="#edititem" style="background-color:#47b8e0"><i class="fa fa-pencil fa-3x"></i></a></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
+    </div>
+</div>
+
+<div class="row modal" id="additem" style="width:80%">
+    <div class="col l12" style="margin-top:1%">
+        <div class="col l6">
+            <img class="responsive-img z-depth-2" src="/assets/images/Bedroom/2.jpeg">
+        </div>
+        <div class="col l6 input-field">
+            <div class="col l6">
+                <select class="browser-default">
+                    <option value="">Choose Main Category</option>
+                    <option value="cat1">Cat 1</option>
+                    <option value="cat2">Cat 2</option>
+                    <option value="cat3">Cat 3</option>
+                    <option value="cat4">Cat 4</option>
+                </select>
+            </div>
+            <div class="col l6">
+                <select class="browser-default">
+                    <option value="">Choose Sub Category</option>
+                    <option value="cat5">Cat 1</option>
+                    <option value="cat6">Cat 2</option>
+                    <option value="cat7">Cat 3</option>
+                    <option value="cat8">Cat 4</option>
+                </select>
+            </div>
+            <div class="col l12">
+                <input id="productname" type="text" placeholder="Product Name:">
+            </div>
+            <div class="col l12">
+                <input id="unit" type="text" placeholder="Pieces, Bundle, Carton & Dozzen">
+            </div>
+            <div class="col l12 input-field">
+                <div class="col l8"><input id="size" type="text" placeholder="Size:"></div>
+                <div class="col l4">
+                    <select class="browser-default">
+                        <option value="inches">Inches</option>
+                        <option value="grams">Grams</option>
+                        <option value="ml">ML</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col l12 input-field">
+                <div class="col l2"><b>Color :</b></div>
+                <div class="col l10">
+                    <select class="browser-default">
+                        <option value="r">Red</option>
+                        <option value="b">Blue</option>
+                        <option value="y">Yellow</option>
+                        <option value="w">White</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="btn" style="background-color:#34314c;color:#ffc952">Save</a>
+    </div>
+</div>
+
+<div class="row modal" id="edititem" style="width:80%">
+    <div class="col l12" style="margin-top:1%">
+        <div class="col l6">
+            <img class="responsive-img z-depth-2" src="/assets/images/Bedroom/2.jpeg">
+        </div>
+        <div class="col l6 input-field">
+            <div class="col l6">
+                <select class="browser-default">
+                    <option value="">Choose Main Category</option>
+                    <option value="cat1">Cat 1</option>
+                    <option value="cat2">Cat 2</option>
+                    <option value="cat3">Cat 3</option>
+                    <option value="cat4">Cat 4</option>
+                </select>
+            </div>
+            <div class="col l6">
+                <select class="browser-default">
+                    <option value="">Choose Sub Category</option>
+                    <option value="cat5">Cat 1</option>
+                    <option value="cat6">Cat 2</option>
+                    <option value="cat7">Cat 3</option>
+                    <option value="cat8">Cat 4</option>
+                </select>
+            </div>
+            <div class="col l12">
+                <input id="productname" type="text" placeholder="Product Name:">
+            </div>
+            <div class="col l12">
+                <input id="unit" type="text" placeholder="Pieces, Bundle, Carton & Dozzen">
+            </div>
+            <div class="col l12 input-field">
+                <div class="col l1"><input type="checkbox" id="size"></div>
+                <div class="col l7"><input id="size" type="text" placeholder="Size:"></div>
+                <div class="col l4">
+                    <select class="browser-default">
+                        <option value="inches">Inches</option>
+                        <option value="grams">Grams</option>
+                        <option value="diameter">Diameter</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col l12 input-field">
+                <div class="col l2"><b>Color :</b></div>
+                <div class="col l10">
+                    <ul class="collection col l12">
+                        <li ng-repeat="color in vm.colors" class="collection-item" style="background: #FAFAFA;">
+                            <ul>
+                                <li ng-repeat="color_select in color.children" style="padding-bottom:1em">
+                                    <div class="row" style="margin-bottom:0px;">
+                                    <span class="col l10 m10 s10">
+                                        <button colorpicker type="button" colorpicker-position="top" ng-model="color_select.name" ng-style="{background: color_select.name}" class="btn col l12 m12 s12"></button>
+
+                                    </span>
+                                    <span class="right  l2 m2 s2" ng-hide="color_select.length == 1">
+                                        <a href ng-click="color.children.splice($index, 1)"><i class="fa fa-times fa-2x"></i></a>
+                                    </span>
+                                    </div>
+                                </li>
+                                <li class="center">
+                                    <a href ng-click="vm.new_color(color, $event)"><i class="fa fa-plus fa-2x"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col l12">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="btn" style="background-color:#34314c;color:#ffc952">Save</a>
     </div>
 </div>

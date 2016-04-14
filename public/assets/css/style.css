@@ -69,7 +69,7 @@ html {
     float: left;
 }
 
-.catimage{
+.topspacing{
     margin-top:1%;
 }
 
@@ -81,22 +81,9 @@ html {
 
 .imagetext{
     position:absolute;
-    bottom:0;
+    bottom:2%;
     margin-left: 2%;
-    color: white;
-}
-
-.imagetext2{
-    position: absolute;
-    bottom:0;
-    margin-left: 2%;
-    color: white;
-}
-
-.imagetext3{
-    position: absolute;
-    bottom: 0;
-    margin-left: 2%;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     color: white;
 }
 

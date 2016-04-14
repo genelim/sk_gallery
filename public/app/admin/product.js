@@ -4,7 +4,14 @@ angular
 
 AdminProductController.$inject = [];
 
-function AdminProductController(){ 
+function AdminProductController(){
     var vm = this;
-    $('.modal-trigger').leanModal();  
+    $('.modal-trigger').leanModal();
+
+    var vm = this;
+    vm.add_product = add_product;
 }
+
+/*
+
+ */

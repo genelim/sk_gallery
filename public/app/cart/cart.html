@@ -1,1 +1,96 @@
-Cart test
+<div class="row container">
+    <h5 class="fontheader"><u>Shopping Cart</u></h5>
+    <div class="col l12">
+        <div class="col l12">
+            <table>
+                <thead>
+                    <tr>
+                        <td><b>Item(s)</b></td>
+                        <td></td>
+                        <td><b>Quantity</b></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="font-size:120%">
+                        <td><img class="z-depth-2" style="height:200px;" src="assets/images/Bedroom/1.jpg"></td>
+                        <td style="position:relative">
+                            <div class="col l12"><b class="itemfont"><u>Super Single Size Bedsheet</u></b></div>
+                            <div class="col l12"><b class="col l1">Size:</b>72 x 50 Inches</div>
+                            <div class="col l12"><b class="col l1">Color:</b>
+                                <div class="col l1"><p style="width:25px;height:25px;bottom: 0;background-color:silver; cursor:pointer; border: 2px solid black"></p></div>
+                            </div>
+                            <div class="col l12"><b style="cursor:pointer"><u>Remove</u></b></div>
+                        </td>
+                        <td><input class="col l12 center" length="3" min="1" size="3" placeholder="2" maxlength="3"></td>
+                    </tr>
+                    <tr style="font-size:120%">
+                        <td><img class="z-depth-2" style="height:200px;" src="assets/images/Bedroom/1.jpg"></td>
+                        <td style="position:relative">
+                            <div class="col l12"><b class="itemfont"><u>Super Single Size Bedsheet</u></b></div>
+                            <div class="col l12"><b class="col l1">Size:</b>72 x 50 Inches</div>
+                            <div class="col l12"><b class="col l1">Color:</b>
+                                <div class="col l1"><p style="width:25px;height:25px;bottom: 0;background-color:silver; cursor:pointer; border: 2px solid black"></p></div>
+                            </div>
+                            <div class="col l12"><b style="cursor:pointer"><u>Remove</u></b></div>
+                        </td>
+                        <td><input class="col l12 center" length="3" min="1" size="3" placeholder="2" maxlength="3"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="btn modal-trigger right" href="#enquiry"  style="background-color:#34314c;color:#ffc952">Send Enquiry | <i class="fa fa-envelope" style="color:#ffc952"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="row modal" id="enquiry" style="width:80%;height:500px">
+    <div class="col l12">
+        <form>
+            <div class="col l6 input-field">
+                <input id="name" placeholder="Lim Cheong Un">
+            </div>
+            <div class="col l6 input-field">
+                <input id="billaddress" placeholder="Billing Address">
+            </div>
+            <div class="col l6 input-field">
+                <input id="shipaddress" placeholder="Shipping Address">
+            </div>
+            <div class="col l4 input-field">
+                <input id="email" placeholder="abc@abc.com">
+            </div>
+            <div class="col l4 input-field">
+                <input id="phone" placeholder="0123456789">
+            </div>
+            <div class="col l4 input-field">
+                <input id="company" placeholder="Household/Restaurant/Hotel/Group">
+            </div>
+        </form>
+        <div class="col l6">
+            <table>
+                <thead>
+                <tr>
+                    <td><b>Items</b></td>
+                    <td></td>
+                    <td><b>Quantity</b></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><img class="z-depth-2" style="height:100px;" src="assets/images/Bedroom/1.jpg"></td>
+                    <td><div class="col l12"><b><u>Super Single Size Bedsheet</u></b></div>
+                        <div class="col l12"><b class="col l3">Size :</b>72 x 90 Inches</div>
+                        <div class="col l12"><b class="col l3">Color :</b><p class="col l2" style="width:25px;height:25px;bottom: 0;background-color:silver; cursor:pointer; border: 2px solid black"></p></div>
+                    </td>
+                    <td style="text-align:center"><b>2</b></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col l6">
+            <textarea style="height:300px;resize:none" ng-model="vm.product.remarks"></textarea>
+        </div>
+        <div class="col l12 modal-footer">
+            <a class="btn" style="background-color:#34314c;color:#ffc952">Send | <i class="fa fa-envelope" style="color:#ffc952"></i></a>
+        </div>
+    </div>
+</div>
