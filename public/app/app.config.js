@@ -33,7 +33,9 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
 
     .state('products', {
         url:'/products',
-        templateUrl: 'app/products/products.html'
+        templateUrl: 'app/products/products.html',
+        controller: 'ProductsController',
+        controllerAs: 'vm'
     })
     .state('admin', {
         url:'/admin',

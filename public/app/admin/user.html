@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col l12">
+        <div class="title">
+            <h5 class="fontheader1"><u>Admin Monitoring</u></h5>
+        </div>
+    </div>
+
+    <div class="col l12">
+        <div class="col l4">
+            <div class="col l12">
+                <h6 class="col l10" style="font-size:150%"><b><u>Add new user</u></b></h6 >
+                <div class="col l2">
+                    <a class="btn modal-trigger" href="#adduser" style="background-color:#34314c"><i class="mdi mdi-content-add" style="color:#ffc952"></i></a>
+                </div>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <td><b>User ID</b></td>
+                    <td><b>Authority Level</b></td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Dennis</td>
+                    <td>
+                        <p class="col l12"><b style="margin-right:1%">Authorize Level :</b>3</p>
+                    </td>
+                    <td><a class="btn modal-trigger" href="#edituser" style="background-color:#34314c"><i class="fa fa-pencil" style="color:#ffc952"></i></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col l8">
+            <h5 class="fontheader"><u>Admin Timeline</u></h5>
+        </div>
+    </div>
+</div>
+
+<div class="row modal" id="adduser">
+    <div class="col l12 modal-content">
+        <div class="col l12 input-field">
+            <input type="text" placeholder="user ID">
+        </div>
+        <div class="col l12 input-field">
+            <div class="col l4">
+                <h5><b>Authority Level :</b></h5>
+            </div>
+            <div class="col l8">
+                <select class="browser-default">
+                    <option class="active">Level 1</option>
+                    <option>Level 2</option>
+                    <option>Level 3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col l12 modal-footer">
+        <a class="btn" style="background-color:#34314c; color:#ffc952">Create</a>
+    </div>
+</div>
+
+<div class="row modal" id="edituser">
+    <div class="col l12 modal-content">
+        <div class="col l12 input-field">
+            <input type="text" placeholder="dennis">
+        </div>
+        <div class="col l12 input-field">
+            <div class="col l4">
+                <h5><b>Authority Level :</b></h5>
+            </div>
+            <div class="col l8">
+                <select class="browser-default">
+                    <option class="active">Level 1</option>
+                    <option>Level 2</option>
+                    <option>Level 3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col l12 modal-footer">
+        <a class="btn" style="background-color:#34314c; color:#ffc952">Edit</a>
+        <a class="btn" style="background-color:#34314c; color:#ffc952">Delete</a>
+    </div>
+</div>
