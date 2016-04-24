@@ -1,25 +1,26 @@
 {
-    "name": "mean_template",
-    "description": "",
-    "main": "server.js",
-    "authors": [
-        "Gene Lim"
-    ],
-    "license": "MIT",
-    "moduleType": [],
-    "homepage": "",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "public/libs",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "angular-ui-router": "^0.2.18",
-        "angular": "^1.5.1",
-        "Materialize": "materialize#^0.97.5",
-        "components-font-awesome": "^4.5.0"
-    }
+  "name": "mean_template",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Gene Lim"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^0.2.18",
+    "angular": "^1.5.1",
+    "Materialize": "materialize#^0.97.5",
+    "components-font-awesome": "^4.5.0",
+    "angular-resource": "^1.5.5"
+  }
 }

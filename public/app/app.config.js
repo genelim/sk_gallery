@@ -59,6 +59,12 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
         controller: 'AdminProductController',
         controllerAs: 'vm'
     })
+    .state('admin.category', {
+        url: '/category',
+        templateUrl: 'app/admin/category.html',
+        controller: 'AdminCategoryController',
+        controllerAs: 'vm'
+    })
     .state('cart', {
         url: '/cart',
         templateUrl: 'app/cart/cart.html',
