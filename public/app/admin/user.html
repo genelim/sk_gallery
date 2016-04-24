@@ -1,14 +1,8 @@
-<div class="row">
-    <div class="col l12">
-        <div class="title">
-            <h5 class="fontheader1"><u>Admin Monitoring</u></h5>
-        </div>
-    </div>
-
-    <div class="col l12">
+<div class="row" style="    padding: 1em;">
+    <div class="row">
         <div class="col l12">
-            <div class="col l12">
-                <h6 class="col l10" style="font-size:150%"><b><u>Add new user</u></b></h6 >
+            <div class="row">
+                <div class="col l10"><h5 class="title">User Dashboard</h5></div>
                 <div class="col l2">
                     <a class="btn modal-trigger" href="#adduser" style="background-color:#34314c"><i class="mdi mdi-content-add" style="color:#ffc952"></i></a>
                 </div>
@@ -86,6 +80,6 @@
     </div>
     <div class="col l12 modal-footer">
         <a class="btn" style="background-color:#34314c; color:#ffc952" ng-click="vm.edit_user()">Edit</a>
-        <a class="btn" style="background-color:#34314c; color:#ffc952">Delete</a>
+        <a class="btn" style="background-color:#34314c; color:#ffc952" ng-click="vm.delete_user()">Delete</a>
     </div>
 </div>

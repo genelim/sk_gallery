@@ -9,6 +9,7 @@ function AdminUserController(User){
     vm.create_user = create_user;
     vm.open_edit_level = open_edit_level;
     vm.edit_user = edit_user;
+    vm.delete_user = delete_user;
     vm.user = {level : 1};
     vm.user_selected = null;
     vm.users = null;
@@ -23,6 +24,7 @@ function AdminUserController(User){
         User.save(vm.user, function(result){
             get_user();
             $('#adduser').closeModal();
+            vm.user = {level : 1};
         })
     }
     
@@ -35,6 +37,13 @@ function AdminUserController(User){
     
     function edit_user(){
         User.update({_id:vm.user_selected._id}, vm.user_selected, function(res) {
+            get_user();
+            $('#edituser').closeModal();
+        });
+    }
+    
+    function delete_user(){
+        User.delete({id:vm.user_selected._id}, function(res) {
             get_user();
             $('#edituser').closeModal();
         });

@@ -35,3 +35,13 @@ exports.update_user = function (req, res) {
         }
     })
 };
+
+exports.delete_user = function (req, res) {
+    User.remove({_id: req.params.id}).exec(function(err,result){
+        if(err){
+            res.json({response:'Server Error'});
+        }else{
+            res.json({response:result});
+        }
+    })
+};
