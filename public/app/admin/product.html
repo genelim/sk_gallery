@@ -68,22 +68,11 @@
             <img class="responsive-img z-depth-2" src="/assets/images/Bedroom/2.jpeg">
         </div>
         <div class="col l6 input-field">
-            <div class="col l6">
-                <select class="browser-default">
-                    <option value="">Choose Main Category</option>
-                    <option value="cat1">Cat 1</option>
-                    <option value="cat2">Cat 2</option>
-                    <option value="cat3">Cat 3</option>
-                    <option value="cat4">Cat 4</option>
-                </select>
-            </div>
-            <div class="col l6">
-                <select class="browser-default">
-                    <option value="">Choose Sub Category</option>
-                    <option value="cat5">Cat 1</option>
-                    <option value="cat6">Cat 2</option>
-                    <option value="cat7">Cat 3</option>
-                    <option value="cat8">Cat 4</option>
+            <div class="col l12">
+                <select class="browser-default" ng-model="vm.new_product.category">
+                    <optgroup label="{{category.main_category}}" ng-repeat="category in vm.category">
+                    <option value="{{sub}}" ng-repeat="sub in category.sub_category">{{sub}}</option>
+                </optgroup>
                 </select>
             </div>
             <div class="col l12">
@@ -116,7 +105,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a class="btn" style="background-color:#34314c;color:#ffc952">Save</a>
+        <a class="btn" style="background-color:#34314c;color:#ffc952" ng-click="vm.add_product();">Save</a>
     </div>
 </div>
 
