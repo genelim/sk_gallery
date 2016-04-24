@@ -86,15 +86,27 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category){
         });
     }
 
-    function delete_category(){
-        Materialize.toast('Coming Soon!', 2000);
-        $('#edit_category').closeModal();
+    function delete_category(type){
+        if(type === 'Sub'){
+            vm.edit_category_type.sub_category.splice(vm.index, 1)
+            Product_Sub_Category.update({_id:vm.edit_category_type._id},vm.edit_category_type, function(res) {
+                $('#edit_category').closeModal();
+                Materialize.toast('Updated', 2000);
+                get_category()                
+            });
+        }else{
+            Product_Main_Category.delete({id:vm.edit_category_type._id}, function(res) {
+                $('#edit_category').closeModal();
+                Materialize.toast('Updated', 2000);
+                get_category()
+            });
+        }        
     }
+    
     get_category()
     function get_category(){
         Product_Main_Category.query(function(result){
             vm.main_category = result.response
-            console.log(vm.main_category)
         })
     }
 }

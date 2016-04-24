@@ -60,3 +60,15 @@ exports.update_sub_category = function (req, res) {
         }
     });
 };
+
+exports.delete_main_category = function (req, res) {    
+    Category.remove({_id : req.params.id},function(err){
+        if(err){
+            console.log(err);
+        }else{
+            Category.find().exec(function(err, category){
+                res.json({response:category});
+            })
+        }
+    });
+};

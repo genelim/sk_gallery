@@ -1,3 +1,3 @@
 module.exports = {
-	url : 'mongodb://127.0.0.1/mean_template'
+	url : 'mongodb://127.0.0.1/sk_gallery'
 }

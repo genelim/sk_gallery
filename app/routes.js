@@ -10,6 +10,7 @@ module.exports = function(app) {
     app.post('/api/main_category', category.insert_main_category);
     app.get('/api/main_category', category.get_category);
     app.put('/api/main_category', category.update_main_category);
+    app.delete('/api/main_category/:id', category.delete_main_category);
 
     //product__sub_category
     app.post('/api/sub_category', category.insert_sub_category);
