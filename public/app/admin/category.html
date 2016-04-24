@@ -7,7 +7,7 @@
         <ul class="collapsible" data-collapsible="accordion">
             <li ng-repeat="main_category in vm.main_category" post-repeat-directive>
                 <div class="collapsible-header">
-                {{main_category.main_category}}
+                <b>{{main_category.main_category}}</b>
                 <i class="fa fa-edit right" ng-click="vm.edit_category(main_category,'Main',null);"></i>
                 </div>
                 <div class="collapsible-body" style="display: none;">

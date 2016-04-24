@@ -1,45 +1,5 @@
 <div class="row ">
     <div class="col l12">
-        <div class="col s12 m12 l6">
-            <div class="title">
-                <h5>Main Category</h5>
-                <div class="right">
-                    <a class="btn z-depth-1 modal-trigger" href="#maincategory"><i class="mdi mdi-content-add"></i></a>
-                </div>
-            </div>
-            <div class="content">
-                <table class="highlight">
-                    <tbody>
-                    <tr ng-repeat="category in vm.categories">
-                        <td class="left">{{category.sub_category}}</td>
-                        <td class="right"><a class="btn btn-small red lighten-1 z-depth-0" ng-click="vm.delete_category(category)"><i class="mdi mdi-action-delete"></i></a></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="col s12 m12 l6">
-            <div class="title">
-                <h5>Sub Category</h5>
-                <div class="btn-group right">
-                    <a class="btn z-depth-1 modal-trigger" href="#subcategory" ng-click="vm.new_category('sub')"><i class="mdi mdi-content-add"></i></a>
-                </div>
-            </div>
-            <div class="content">
-                <table class="highlight">
-                    <tbody>
-                    <tr ng-repeat="category in vm.categories">
-                        <td class="left">{{category.sub_category}}</td>
-                        <td class="right"><a class="btn btn-small red lighten-1 z-depth-0" ng-click="vm.delete_category(category)"><i class="mdi mdi-action-delete"></i></a></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="col l12">
         <div class="title">
             <h5 class="fontheader1"><u>Product Management</u></h5>
             <div class="right">

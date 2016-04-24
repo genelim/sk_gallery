@@ -10,4 +10,8 @@ function AdminProductController(){
 
     var vm = this;
     vm.add_product = add_product;
+    
+    function add_product(){
+            
+    }
 }

@@ -3,6 +3,8 @@ var category = require('./controllers/category');
 
 module.exports = function(app) {
     app.get('/api/user', user.get_user);
+    app.post('/api/user', user.save_user);
+    app.put('/api/user', user.update_user);
     
     //product__main_category
     app.post('/api/main_category', category.insert_main_category);
