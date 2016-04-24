@@ -1,45 +1,5 @@
 <div class="row ">
     <div class="col l12">
-        <div class="col s12 m12 l6">
-            <div class="title">
-                <h5>Main Category</h5>
-                <div class="right">
-                    <a class="btn z-depth-1 modal-trigger" href="#maincategory"><i class="mdi mdi-content-add"></i></a>
-                </div>
-            </div>
-            <div class="content">
-                <table class="highlight">
-                    <tbody>
-                    <tr ng-repeat="category in vm.categories">
-                        <td class="left">{{category.sub_category}}</td>
-                        <td class="right"><a class="btn btn-small red lighten-1 z-depth-0" ng-click="vm.delete_category(category)"><i class="mdi mdi-action-delete"></i></a></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="col s12 m12 l6">
-            <div class="title">
-                <h5>Sub Category</h5>
-                <div class="btn-group right">
-                    <a class="btn z-depth-1 modal-trigger" href="#subcategory" ng-click="vm.new_category('sub')"><i class="mdi mdi-content-add"></i></a>
-                </div>
-            </div>
-            <div class="content">
-                <table class="highlight">
-                    <tbody>
-                    <tr ng-repeat="category in vm.categories">
-                        <td class="left">{{category.sub_category}}</td>
-                        <td class="right"><a class="btn btn-small red lighten-1 z-depth-0" ng-click="vm.delete_category(category)"><i class="mdi mdi-action-delete"></i></a></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="col l12">
         <div class="title">
             <h5 class="fontheader1"><u>Product Management</u></h5>
             <div class="right">
@@ -113,6 +73,7 @@
                 <option>Cutleries</option>
             </select>
         </div>
+<<<<<<< HEAD
         <div class="col l6">
             <p class="col l3">Sub Category</p>
             <select class="col l9 browser-default">
@@ -129,6 +90,21 @@
             <div class="col l6 input-field">
                 <p class="col l2"><b>Name :</b></p>
                 <input class="col l10" type="text" placeholder="Hanger/ Napkin/ ETC">
+=======
+        <div class="col l6 input-field">
+            <div class="col l12">
+                <select class="browser-default" ng-model="vm.new_product.category">
+                    <optgroup label="{{category.main_category}}" ng-repeat="category in vm.category">
+                    <option value="{{sub}}" ng-repeat="sub in category.sub_category">{{sub}}</option>
+                </optgroup>
+                </select>
+            </div>
+            <div class="col l12">
+                <input id="productname" type="text" placeholder="Product Name:">
+            </div>
+            <div class="col l12">
+                <input id="unit" type="text" placeholder="Pieces, Bundle, Carton & Dozzen">
+>>>>>>> 12c22f634fdf1fcc8c40b8e7c1e784104dab54f9
             </div>
         </div>
 
@@ -166,6 +142,14 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+=======
+    </div>
+    <div class="modal-footer">
+        <a class="btn" style="background-color:#34314c;color:#ffc952" ng-click="vm.add_product();">Save</a>
+    </div>
+</div>
+>>>>>>> 12c22f634fdf1fcc8c40b8e7c1e784104dab54f9
 
         <div class="col l12">      <!-- Image Input -->
             <div class="col l2">

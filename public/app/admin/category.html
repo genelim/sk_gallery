@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="card col l12 m12 s12 z-depth-0">
+        <div class="card-title">
+            Categories
+            <button class="btn green lighten-2 right tooltipped" data-position="left" data-delay="50" data-tooltip="Add new main category" ng-click="vm.add_category(null,'modal');"><i class="fa fa-plus"></i></button>
+        </div>
+        <ul class="collapsible" data-collapsible="accordion">
+            <li ng-repeat="main_category in vm.main_category" post-repeat-directive>
+                <div class="collapsible-header">
+                <b>{{main_category.main_category}}</b>
+                <i class="fa fa-edit right" ng-click="vm.edit_category(main_category,'Main',null);"></i>
+                </div>
+                <div class="collapsible-body" style="display: none;">
+                    <div class="collection">
+                        <p class="collection-item" ng-repeat="sub_category in main_category.sub_category track by $index">
+                           <i class="fa fa-edit left" ng-click="vm.edit_category(main_category,'Sub',$index)"></i>
+                           <label >{{sub_category}}</label> 
+                        </p>
+                        <p class="collection-item center sub" style="display:none;">
+                           <input type="text" ng-model="main_category.sub"/>
+                           <button class="btn green lighten-2 {{main_category._id}}" id="{{main_category._id}}" ng-click="vm.add_category(main_category,'sub',$index)">Add</button> 
+                        </p>
+                        <p class="collection-item center">
+                           <button class="btn toggle_sub blue lighten-1 tooltipped" data-position="right" data-delay="10" data-tooltip="Add new sub category"><i class="fa fa-plus"></i></button> 
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li ng-if="!vm.main_category.length">
+                <div class="collapsible-header">
+                    <b>No Category available.</b> Click on the green plus button to add a new category
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="category" class="modal bottom-sheet">
+	<div class="modal-content">
+		<h4>New Main Category</h4>
+		<div class="input-field">
+          	<input type="text" ng-model="vm.new_main_category.name">
+        </div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-action waves-effect waves-green btn-flat" ng-click="vm.add_category(vm.new_main_category,'main')">Add</a>
+	</div>
+</div>
+
+<div id="edit_category" class="modal bottom-sheet">
+    <div class="modal-content">
+        <h4>Edit {{vm.category_type}} Category</h4>
+        <div class="input-field">
+            <input type="text" ng-model="vm.edit_category_type.sub_category[vm.index]" ng-if="vm.category_type === 'Sub'">
+            <input type="text" ng-model="vm.edit_category_type.main_category" ng-if="vm.category_type === 'Main'">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action waves-effect waves-red btn-flat" ng-click="vm.delete_category(vm.category_type)">Delete</a>
+        <a class="modal-action waves-effect waves-green btn-flat" ng-click="vm.update_category(vm.edit_category_type,vm.category_type)">Edit</a>
+    </div>
+</div>
