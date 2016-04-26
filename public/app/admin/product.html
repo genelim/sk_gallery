@@ -22,12 +22,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="checkbox" id="test1"><label for="test1"></label></td>
-                        <td><img class="responsive-img" style="height:200px" src="/assets/images/Bedroom/1.jpg"></td>
-                        <td>Super Single Size Bedsheet</td>
-                        <td>White</td>
-                        <td>90 x 110 Inches</td>
+                    <tr ng-repeat="product in vm.products">
+                        <td><input type="checkbox" id="{{product._id}}"><label for="{{product._id}}"></label></td>
+                        <td><img class="responsive-img" style="height:150px" ng-src="{{product.image[0]}}"></td>
+                        <td>{{product.name}}</td>
+                        <td>
+                            <select class="browser-default">
+                                <option ng-repeat="color in product.color">{{color}}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="browser-default">
+                                <option ng-repeat="size in product.size">{{size}}</option>
+                            </select>
+                        </td>
                         <td><a class="btn modal-trigger" href="#edititem" style="background-color:#47b8e0"><i class="fa fa-pencil fa-3x"></i></a></td>
                     </tr>
                 </tbody>
@@ -70,19 +78,11 @@
                 <label for="productname">Product Name</label>
             </div>
             <div class="input-field col s12 m6 l6">
-                <select class="browser-default black-text" ng-model="vm.product_details.category">
-                    <option value="" disabled selected>Select Category (Optional)</option>
-                    <optgroup label="{{main_category.main_category}}" ng-repeat="main_category in vm.main_category">
-                        <option value="{{sub_category._id}}" ng-repeat="sub_category in vm.sub_category" ng-if="sub_category.product_main_category === main_category._id">{{sub_category.sub_category}}</option>
-                    </optgroup>
+                <select class="browser-default" ng-model="vm.product_details.main_category" ng-options="main.main_category for main in vm.category" ng-change="vm.category_selected(vm.product_details.main_category)">
                 </select>
             </div>
             <div class="input-field col s12 m6 l6">
-                <select class="browser-default black-text" ng-model="vm.product_details.category">
-                    <option value="" disabled selected>Select Category (Optional)</option>
-                    <optgroup label="{{main_category.main_category}}" ng-repeat="main_category in vm.main_category">
-                        <option value="{{sub_category._id}}" ng-repeat="sub_category in vm.sub_category" ng-if="sub_category.product_main_category === main_category._id">{{sub_category.sub_category}}</option>
-                    </optgroup>
+                <select class="browser-default" ng-model="vm.product_details.sub_category" ng-options="sub for sub in vm.selected_category.sub_category">
                 </select>
             </div>
             <div class="col s12 m6 l6">

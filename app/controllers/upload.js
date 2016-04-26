@@ -10,12 +10,12 @@ exports.upload_image = function (req, res) {
         var file = files.file;
         var tempPath = file.path;
         var rename = uuid64();
-        var targetPath = path.resolve('./public/assets/images/upload'  + rename + file.name );
+        var targetPath = path.resolve('./public/assets/images/upload/'  + rename + file.name );
         fs.rename(tempPath, targetPath, function (err) {
             if (err) {
                 throw err
             }
-            return res.json({path: 'assets/images/upload'  + rename + file.name })
+            return res.json({path: 'assets/images/upload/'  + rename + file.name })
         })
     });
 };

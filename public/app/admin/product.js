@@ -2,27 +2,45 @@ angular
     .module('app')
     .controller('AdminProductController', AdminProductController);
 
-AdminProductController.$inject = ['Product_Main_Category', 'Upload'];
+AdminProductController.$inject = ['Product_Main_Category', 'Upload', 'Product'];
 
-function AdminProductController(Product_Main_Category, Upload){
+function AdminProductController(Product_Main_Category, Upload, Product){
     var vm = this;
     $('.modal-trigger').leanModal();
     vm.add_product = add_product;
     vm.get_category = get_category;
     vm.category = null;
     vm.new_product = null;
+    vm.products = null;
     
-    vm.product_details = {color:[],size:[],image:[],shipping_fee:[],category:null};
-        vm.add_row = add_row;
+    vm.product_details = {color:[],size:[],image:[],main_category:null,sub_category:null};
+    vm.add_row = add_row;
+    vm.category_selected = category_selected;
+    vm.upload = upload;
 
-    function add_product(){
-        console.log(vm.new_product)    
+    function add_product(){ 
+        Product.save(vm.product_details, function(result){
+            vm.products = result.response
+            Materialize.toast('Added New Product', 2000);
+            vm.product_details = {color:[],size:[],image:[],main_category:null,sub_category:null};
+        })     
+    }
+    
+    function category_selected(category){
+        vm.selected_category = category;
     }
     
     get_category()
+    get_product()
     function get_category(){
         Product_Main_Category.query(function(result){
             vm.category = result.response
+        })
+    }
+    
+    function get_product(){
+        Product.query(function(result){
+            vm.products = result.response
         })
     }
     
@@ -38,4 +56,19 @@ function AdminProductController(Product_Main_Category, Upload){
         }
         $event.preventDefault();
     }
+    
+    function upload(files,path,index) {
+        if (files && files.length) {
+            $('.loader_view'+index).show();
+            $('.image_view'+index).hide();
+            Upload.upload({url: '/api/upload_image', file: files[0]}).success(function (data, status, headers, config) {
+                $('.loader_view'+index).hide();
+                $('.image_view'+index).show();
+                vm.product_details.image[index] = data.path;
+            });
+        }else{
+            Materialize.toast('No file detected', 2000);
+            return
+        }
+    };
 }

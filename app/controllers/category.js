@@ -1,4 +1,3 @@
-
 var Category = require('../models/category.js');
 
 exports.get_category = function (req, res) {

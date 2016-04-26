@@ -1,6 +1,7 @@
-var user = require('./controllers/user');
-var category = require('./controllers/category');
-var upload = require('./controllers/upload');
+var user        = require('./controllers/user'),
+    category    = require('./controllers/category'),
+    upload      = require('./controllers/upload'),
+    product     = require('./controllers/product');
 
 module.exports = function(app) {
     app.get('/api/user', user.get_user);
@@ -18,8 +19,11 @@ module.exports = function(app) {
     app.post('/api/sub_category', category.insert_sub_category);
     app.put('/api/sub_category', category.update_sub_category);
     
+    //product
+    app.post('/api/product', product.add_product);
+    app.get('/api/product', product.get_product);
+
     //image upload
-    app.post('/api/upload_image', upload.upload_image);
-    
+    app.post('/api/upload_image', upload.upload_image);    
 };
 
