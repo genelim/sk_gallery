@@ -1,28 +1,11 @@
 <div class="row">
-    <p class="fontheader">Bed & Bathroom Linen</p>
+    <p class="fontheader">{{vm.main_category.main_category}}</p>
     <div class="col l12">
-        <div class="col l3" style="position:relative">
-            <a href="/products">
-                <h5 class="imagetext">Bedsheet</h5>
-                <img class="responsive-img cardimage" src="/assets/images/Bedroom/1.jpg">
-            </a>
-        </div>
-        <div class="col l3" style="position:relative">
-            <a href="/products">
-                <h5 class="imagetext">Bedsheet</h5>
-                <img class="responsive-img cardimage" src="/assets/images/Bedroom/1.jpg">
-            </a>
-        </div>
-        <div class="col l3" style="position:relative">
-            <a href="/products">
-                <h5 class="imagetext">Bedsheet</h5>
-                <img class="responsive-img cardimage" src="/assets/images/Bedroom/1.jpg">
-            </a>
-        </div>
-        <div class="col l3" style="position:relative">
-            <a href="/products">
-                <h5 class="imagetext">Bedsheet</h5>
-                <img class="responsive-img cardimage" src="/assets/images/Bedroom/1.jpg">
+        <div class="col s12 m12 l3" style="position:relative" ng-repeat="collection in vm.main_category.sub_category">
+            <a href="/products/{{vm.main_category._id}}/{{collection.name}}" class="catimage">
+            <!--<a href="/products" class="catimage">-->
+                <div class="card" style="background: url('{{collection.image}}') center / cover; height: 350px"></div>
+                <h5 class="imagetext"><b>{{collection.name}}</b></h5>
             </a>
         </div>
     </div>

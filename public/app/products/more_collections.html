@@ -1,46 +1,10 @@
 <div class="row">
     <p style="text-align:center"><b style="font-size:250%; color:#34314c">Main Collection</b></p>
     <div class="col l12" style="margin-bottom:1%">
-        <div class="col s12 m12 l4" style="position:relative">
-            <a href="/collection" class="catimage">
-                <div class="card" style="background: url('/assets/images/Bedroom/1.jpg') center / cover; height: 350px"></div>
-                <h5 class="imagetext"><b>Banquet & Conferenceroom</b></h5>
-            </a>
-        </div>
-
-        <div class="col s12 m12 l4" style="position:relative">
-            <a href="/collection">
-                <div class="card" style="background: url('/assets/images/Bedroom/1.jpg') center / cover; height: 350px"></div>
-                <h5 class="imagetext"><b>Guestroom Supplies</b></h5>
-            </a>
-        </div>
-
-        <div class="col s12 m12 l4" style="position:relative">
-            <a href="/collection" class="catimage">
-                <div class="card" style="background: url('/assets/images/Bedroom/2.jpeg') center / cover; height: 350px"></div>
-                <h5 class="imagetext"><b>Bath & Bedroom Linen</b></h5>
-            </a>
-        </div>
-    </div>
-    <div class="col l12" style="margin-bottom:1%">
-        <div class="col s12 m12 l4 catimage" style="position:relative">
-            <a href="/collection" class="catimage">
-                <div class="card" style="background: url('/assets/images/Bedroom/2.jpeg') center / cover; height: 350px"></div>
-                <h5 class="imagetext"><b>Guestroom Amenities</b></h5>
-            </a>
-        </div>
-
-        <div class="col s12 m12 l4 catimage" style="position:relative">
-            <a href="/collection" class="catimage">
-                <div class="card" style="background: url('/assets/images/Cutleries/1.jpg') center / cover; height: 350px"></div>
-                <h5 class="imagetext"><b>Cutleries</b></h5>
-            </a>
-        </div>
-
-        <div class="col s12 m12 l4 catimage" style="position:relative">
-            <a href="/collection" class="catimage">
-                <div class="card" style="background: url('/assets/images/Porcelain/1.jpg') center / cover; height: 350px"></div>
-                <h5 class="imagetext"><b>Porcelain</b></h5>
+        <div class="col s12 m12 l4" style="position:relative" ng-repeat="category in vm.main_category">
+            <a href="/collection/{{category._id}}" class="catimage">
+                <div class="card" style="background: url('{{category.image}}') center / cover; height: 350px"></div>
+                <h5 class="imagetext"><b{{category.main_category}}</b></h5>
             </a>
         </div>
     </div>

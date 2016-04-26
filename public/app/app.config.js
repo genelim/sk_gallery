@@ -18,7 +18,9 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
     })
     .state('more_collections', {
         url:'/more_collections',
-        templateUrl: 'app/products/more_collections.html'
+        templateUrl: 'app/products/more_collections.html',
+        controller: 'MoreCollectionsController',
+        controllerAs: 'vm'
     })
     .state('product_details', {
         url:'/product_details',
@@ -27,12 +29,14 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
         controllerAs: 'vm'
     })
     .state('collection', {
-        url:'/collection',
-        templateUrl: 'app/products/collection.html'
+        url:'/collection/:id',
+        templateUrl: 'app/products/collection.html',
+        controller: 'CollectionController',
+        controllerAs: 'vm'
     })
 
     .state('products', {
-        url:'/products',
+        url:'/products/:id/:name',
         templateUrl: 'app/products/products.html',
         controller: 'ProductsController',
         controllerAs: 'vm'
