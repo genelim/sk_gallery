@@ -37,7 +37,7 @@ exports.insert_sub_category = function (req, res) {
 
 
 exports.update_main_category = function (req, res) {    
-    Category.findOneAndUpdate({_id : req.body._id},{$set: {main_category : req.body.main_category}},{upsert:true},function(err){
+    Category.findOneAndUpdate({_id : req.body._id},{$set: {main_category : req.body.main_category, image : req.body.image}},{upsert:true},function(err){
         if(err){
             console.log(err);
         }else{
@@ -49,7 +49,6 @@ exports.update_main_category = function (req, res) {
 };
 
 exports.update_sub_category = function (req, res) {    
-    console.log(req.body)
     Category.findOneAndUpdate({_id : req.body._id},{$set: {sub_category : req.body.sub_category}},{upsert:true},function(err){
         if(err){
             console.log(err);

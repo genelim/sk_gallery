@@ -76,11 +76,15 @@
 </div>
 
 <div id="edit_category" class="modal bottom-sheet">
-    <div class="modal-content">
+    <div class="modal-content row">
         <h4>Edit {{vm.category_type}} Category</h4>
-        <div class="input-field">
-            <input type="text" ng-model="vm.edit_category_type.sub_category[vm.index].name" ng-if="vm.category_type === 'Sub'">
+        <div class="input-field col l6">
+            <input type="text" ng-model="vm.edit_category_type.sub_category[vm.index].name"  ng-if="vm.category_type === 'Sub'"">
             <input type="text" ng-model="vm.edit_category_type.main_category" ng-if="vm.category_type === 'Main'">
+        </div>
+        <div class="col l1">
+            <img  ng-if="vm.category_type === 'Sub'" ng-src="{{vm.edit_category_type.sub_category[vm.index].image}}" style="height: 40px; width: 40px;"  ngf-select="vm.upload($files,this,$index)" ngf-drop="vm.upload($files,this,$index)"/>        
+            <img  ng-if="vm.category_type === 'Main'" ng-src="{{vm.edit_category_type.image}}" style="height: 50px; width:50px;"  ngf-select="vm.upload_edit($files,this)" ngf-drop="vm.upload_edit($files,this)"/>        
         </div>
     </div>
     <div class="modal-footer">

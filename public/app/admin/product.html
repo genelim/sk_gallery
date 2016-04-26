@@ -82,7 +82,7 @@
                 </select>
             </div>
             <div class="input-field col s12 m6 l6">
-                <select class="browser-default" ng-model="vm.product_details.sub_category" ng-options="sub for sub in vm.selected_category.sub_category">
+                <select class="browser-default" ng-model="vm.product_details.sub_category" ng-options="sub.name for sub in vm.selected_category.sub_category">
                 </select>
             </div>
             <div class="col s12 m6 l6">

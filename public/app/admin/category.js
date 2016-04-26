@@ -30,6 +30,7 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category, Up
     vm.new_main_category = null;
     vm.edit_category_type = null;
     vm.upload = upload;
+    vm.upload_edit = upload_edit;
     vm.update_category = update_category;
     vm.main_category = []
     vm.sub_category = []
@@ -89,6 +90,7 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category, Up
         }else if(type === 'Sub'){
             var db_category = Product_Sub_Category;
         }
+        console.log(data)
         db_category.update({_id:data._id},data, function(res) {
             $('#edit_category').closeModal();
             Materialize.toast('Updated', 2000);
@@ -128,9 +130,37 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category, Up
                     if(this.width > 300){
                         Upload.upload({url: '/api/upload_image', file: files[0]}).success(function (data, status, headers, config) {
                             vm.uploaded = true;
-                            console.log(data)
-                            vm.style = "url('"+data.url_thumbnail+"') center / cover";
-                            vm.image_link = data;
+                            if(vm.category_type === 'Main'){
+                                vm.image_link = data.path;
+                            }else{
+                                vm.edit_category_type.sub_category[vm.index].image = data.path
+                            }
+                        });
+                    }else{
+                        // toastr.warning('Image width size must be atleast 500px');
+                        Materialize.toast('Image width size must be atleast 300px', 2000);
+                    }
+                };
+                img.src = _URL.createObjectURL(files[0]);
+            }else{
+                // toastr.warning('Only accepts One Image at a time.');
+                Materialize.toast('Only accepts One Image at a time.', 2000);
+            }            
+        }else{
+            // toastr.warning('Image is not uploaded');
+            Materialize.toast('Image is not uploaded', 2000);
+        }
+    };
+    
+    function upload_edit(files,path) {
+        if (files) {
+            if(files.length <= 1 && files.length > 0){
+                var _URL = window.URL || window.webkitURL;
+                img = new Image();
+                img.onload = function () {
+                    if(this.width > 300){
+                        Upload.upload({url: '/api/upload_image', file: files[0]}).success(function (data, status, headers, config) {
+                            vm.edit_category_type.image = data.path
                         });
                     }else{
                         // toastr.warning('Image width size must be atleast 500px');
