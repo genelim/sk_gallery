@@ -7,19 +7,34 @@
         <ul class="collapsible" data-collapsible="accordion">
             <li ng-repeat="main_category in vm.main_category" post-repeat-directive>
                 <div class="collapsible-header">
-                <b>{{main_category.main_category}}</b>
+                <div style="height: 40px; width: 40px; position: absolute; margin-top: 3px;background:url('{{main_category.image}}') center / cover;"></div>
+                <b style="    padding-left: 50px;">{{main_category.main_category}}</b>
                 <i class="fa fa-edit right" ng-click="vm.edit_category(main_category,'Main',null);"></i>
                 </div>
                 <div class="collapsible-body" style="display: none;">
                     <div class="collection">
-                        <p class="collection-item" ng-repeat="sub_category in main_category.sub_category track by $index">
-                           <i class="fa fa-edit left" ng-click="vm.edit_category(main_category,'Sub',$index)"></i>
-                           <label >{{sub_category}}</label> 
+                        <p class="collection-item" ng-repeat="sub_category in main_category.sub_category track by $index" style="position: relative">
+                            <i class="fa fa-edit left" ng-click="vm.edit_category(main_category,'Sub',$index)"></i>
+                            <img ng-src="{{sub_category.image}}" style="height: 40px; width: 40px;"/>
+                            <label style="padding-left: 60px">{{sub_category.name}}</label> 
                         </p>
-                        <p class="collection-item center sub" style="display:none;">
-                           <input type="text" ng-model="main_category.sub"/>
+                        <div class="collection-item center sub row" style="display:none;">
+                           <input type="text" ng-model="main_category.sub" class="col l6"/>
+                           <div class="col l6" ng-if="!vm.uploaded" ngf-select="vm.upload($files,this,$index)" ngf-drop="vm.upload($files,this,$index)" style="margin: 0 auto; text-align: center;">
+                                <div style="margin: 0 auto; text-align: center;">
+                                    <i class="fa fa-hdd-o fa-5x"></i>
+                                </div>                    
+                                <p><b>Choose a file</b> or drag it here.</p>
+                            </div>
+                            <div ngf-no-file-drop class="col l6">File Drag/Drop is not supported for this browser</div>
+                            <div ng-if="vm.uploaded" style="margin: 0 auto; color: white;  background: url('{{vm.image_link.path}}')" class="col l6">
+                                <div style="margin: 0 auto; text-align: center;)">
+                                    <i class="fa fa-check fa-5x"></i>
+                                </div>
+                                <p style="text-align:center"><b>Successfully Uploaded.</b> Click Add to proceed</p>
+                            </div>
                            <button class="btn green lighten-2 {{main_category._id}}" id="{{main_category._id}}" ng-click="vm.add_category(main_category,'sub',$index)">Add</button> 
-                        </p>
+                        </div>
                         <p class="collection-item center">
                            <button class="btn toggle_sub blue lighten-1 tooltipped" data-position="right" data-delay="10" data-tooltip="Add new sub category"><i class="fa fa-plus"></i></button> 
                         </p>
@@ -36,10 +51,23 @@
 </div>
 
 <div id="category" class="modal bottom-sheet">
-	<div class="modal-content">
+	<div class="modal-content row">
 		<h4>New Main Category</h4>
-		<div class="input-field">
+		<div class="input-field col l6">
           	<input type="text" ng-model="vm.new_main_category.name">
+        </div>
+        <div class="col l6" ng-if="!vm.uploaded" ngf-select="vm.upload($files,this,$index)" ngf-drop="vm.upload($files,this,$index)" style="margin: 0 auto; text-align: center;">
+            <div style="margin: 0 auto; text-align: center;">
+                <i class="fa fa-hdd-o fa-5x"></i>
+            </div>                    
+            <p><b>Choose a file</b> or drag it here.</p>
+        </div>
+        <div ngf-no-file-drop class="col l6">File Drag/Drop is not supported for this browser</div>
+        <div ng-if="vm.uploaded" style="margin: 0 auto; color: white;  background: url('{{vm.image_link.path}}')" class="col l6">
+            <div style="margin: 0 auto; text-align: center;)">
+                <i class="fa fa-check fa-5x"></i>
+            </div>
+            <p style="text-align:center"><b>Successfully Uploaded.</b> Click Add to proceed</p>
         </div>
 	</div>
 	<div class="modal-footer">
@@ -51,7 +79,7 @@
     <div class="modal-content">
         <h4>Edit {{vm.category_type}} Category</h4>
         <div class="input-field">
-            <input type="text" ng-model="vm.edit_category_type.sub_category[vm.index]" ng-if="vm.category_type === 'Sub'">
+            <input type="text" ng-model="vm.edit_category_type.sub_category[vm.index].name" ng-if="vm.category_type === 'Sub'">
             <input type="text" ng-model="vm.edit_category_type.main_category" ng-if="vm.category_type === 'Main'">
         </div>
     </div>

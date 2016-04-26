@@ -9,6 +9,7 @@ exports.get_category = function (req, res) {
 exports.insert_main_category = function (req, res) {
 	var new_category = new Category();
 	new_category.main_category = req.body.name;
+	new_category.image = req.body.image;
 	
 	new_category.save(function(err, category) {
 		if(err){

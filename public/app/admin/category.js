@@ -19,9 +19,9 @@
         }
     });
 
-AdminCategoryController.$inject = ['Product_Main_Category','Product_Sub_Category'];
+AdminCategoryController.$inject = ['Product_Main_Category','Product_Sub_Category', 'Upload'];
 
-function AdminCategoryController(Product_Main_Category, Product_Sub_Category){ 
+function AdminCategoryController(Product_Main_Category, Product_Sub_Category, Upload){ 
     var vm = this;
     vm.add_category = add_category;
     vm.edit_category = edit_category;
@@ -29,10 +29,12 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category){
     vm.category_type = null;
     vm.new_main_category = null;
     vm.edit_category_type = null;
+    vm.upload = upload;
     vm.update_category = update_category;
     vm.main_category = []
     vm.sub_category = []
     vm.index = null;
+    vm.image_link = null;
 
     //adding main cateogry
     function add_category(data, type, $index){
@@ -42,17 +44,22 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category){
             return;
         } else if(type === 'main'){
             // TO DO: Check duplicates from db
+            data.image = vm.image_link.path
             Product_Main_Category.save(data ,function(res){
                 vm.new_main_category.name = null;
                 vm.main_category = res.response
                 $('#category').closeModal();
                 data = null;
+                vm.image_link = null;
+                vm.uploaded = false;
             })
         } else if(type === 'sub'){
             for(var i = 0; i < vm.main_category.length; i++){
                 if(vm.main_category[i]._id === data._id){
-                    vm.main_category[i].sub_category.push(data.sub)
+                    var data_new = {name: data.sub, image:vm.image_link.path};
+                    vm.main_category[i].sub_category.push(data_new)
                     data.sub_category = vm.main_category[i].sub_category;
+                    console.log(data)
                 }
             }
             // TO DO: Check duplicates from db
@@ -60,6 +67,8 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category){
                 $('.'+data._id).parent().toggle('fast');
                 $('.'+data._id).parent().next().children().children().toggleClass('fa-plus fa-minus') 
                 data = null;
+                vm.image_link = null;
+                vm.uploaded = false;
             })
         }
     }
@@ -109,4 +118,33 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category){
             vm.main_category = result.response
         })
     }
+    
+    function upload(files,path,index) {
+        if (files) {
+            if(files.length <= 1 && files.length > 0){
+                var _URL = window.URL || window.webkitURL;
+                img = new Image();
+                img.onload = function () {
+                    if(this.width > 300){
+                        Upload.upload({url: '/api/upload_image', file: files[0]}).success(function (data, status, headers, config) {
+                            vm.uploaded = true;
+                            console.log(data)
+                            vm.style = "url('"+data.url_thumbnail+"') center / cover";
+                            vm.image_link = data;
+                        });
+                    }else{
+                        // toastr.warning('Image width size must be atleast 500px');
+                        Materialize.toast('Image width size must be atleast 300px', 2000);
+                    }
+                };
+                img.src = _URL.createObjectURL(files[0]);
+            }else{
+                // toastr.warning('Only accepts One Image at a time.');
+                Materialize.toast('Only accepts One Image at a time.', 2000);
+            }            
+        }else{
+            // toastr.warning('Image is not uploaded');
+            Materialize.toast('Image is not uploaded', 2000);
+        }
+    };
 }
