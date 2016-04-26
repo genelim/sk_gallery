@@ -1,1 +1,1 @@
-angular.module('app',['ui.router','ngResource']); 
+angular.module('app',['ui.router','ngResource','colorpicker.module','ngFileUpload']); 

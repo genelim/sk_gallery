@@ -63,106 +63,116 @@
 </div>
 
 <div class="modal row" id="additem" style="width:80%">
-    <div class="col l12" style="margin-top:1%">       <!-- Category session -->
-        <div class="col l6">
-            <p class="col l3">Main Category</p>
-            <select class="col l9 browser-default">
-                <option>Guestroom Supplies</option>
-                <option>Guestroom Amanities</option>
-                <option>Bed & Bathroom Linen</option>
-                <option>Cutleries</option>
-            </select>
-        </div>
-<<<<<<< HEAD
-        <div class="col l6">
-            <p class="col l3">Sub Category</p>
-            <select class="col l9 browser-default">
-                <option>Bedsheet</option>
-                <option>Hanger</option>
-                <option>Shampoo</option>
-                <option>Napkin</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="col l12">       <!-- Item Description -->
-        <div class="col l12">
-            <div class="col l6 input-field">
-                <p class="col l2"><b>Name :</b></p>
-                <input class="col l10" type="text" placeholder="Hanger/ Napkin/ ETC">
-=======
-        <div class="col l6 input-field">
-            <div class="col l12">
-                <select class="browser-default" ng-model="vm.new_product.category">
-                    <optgroup label="{{category.main_category}}" ng-repeat="category in vm.category">
-                    <option value="{{sub}}" ng-repeat="sub in category.sub_category">{{sub}}</option>
-                </optgroup>
+    <div class="modal-content">
+        <div class="row">
+            <div class="input-field col s12 m12 l12">
+                <input id="productname" type="text" ng-model="vm.product_details.name">
+                <label for="productname">Product Name</label>
+            </div>
+            <div class="input-field col s12 m6 l6">
+                <select class="browser-default black-text" ng-model="vm.product_details.category">
+                    <option value="" disabled selected>Select Category (Optional)</option>
+                    <optgroup label="{{main_category.main_category}}" ng-repeat="main_category in vm.main_category">
+                        <option value="{{sub_category._id}}" ng-repeat="sub_category in vm.sub_category" ng-if="sub_category.product_main_category === main_category._id">{{sub_category.sub_category}}</option>
+                    </optgroup>
                 </select>
             </div>
-            <div class="col l12">
-                <input id="productname" type="text" placeholder="Product Name:">
+            <div class="input-field col s12 m6 l6">
+                <select class="browser-default black-text" ng-model="vm.product_details.category">
+                    <option value="" disabled selected>Select Category (Optional)</option>
+                    <optgroup label="{{main_category.main_category}}" ng-repeat="main_category in vm.main_category">
+                        <option value="{{sub_category._id}}" ng-repeat="sub_category in vm.sub_category" ng-if="sub_category.product_main_category === main_category._id">{{sub_category.sub_category}}</option>
+                    </optgroup>
+                </select>
             </div>
-            <div class="col l12">
-                <input id="unit" type="text" placeholder="Pieces, Bundle, Carton & Dozzen">
->>>>>>> 12c22f634fdf1fcc8c40b8e7c1e784104dab54f9
+            <div class="col s12 m6 l6">
+                <p class="grey-text">Color(Optional)</p>
+                <ul class="collection col l12">
+                    <li class="collection-item" style="background: #FAFAFA;">
+                        <ul>
+                            <li ng-repeat="color_select in vm.product_details.color track by $index" style="padding-bottom:1em">
+                                <div class="row" style="margin-bottom:0px;">
+                                    <span class="col l10 m10 s10">
+                                        <button colorpicker type="button" colorpicker-position="top" ng-model="vm.product_details.color[$index]" ng-style="{background: vm.product_details.color[$index]}" class="btn col l12 m12 s12"></button>
+
+                                    </span>
+                                    <span class="right  l2 m2 s2" ng-hide="color_select.length == 1">
+                                        <a href ng-click="vm.product_details.color.splice($index, 1)"><i class="fa fa-times fa-2x"></i></a>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="center">
+                                <a ng-click="vm.add_row(vm.product_details.color,'color', $event)"><i class="fa fa-plus fa-2x"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s12 m6 l6">
+                <p class="grey-text">Size (Optional)</p>
+                <ul class="collection col l12">
+                    <li class="collection-item" style="background: #FAFAFA;">
+                        <ul>
+                            <li ng-repeat="size_select in vm.product_details.size track by $index" style="padding-bottom:1em">
+                                <div class="row" style="margin-bottom:0px;">
+                                    <span class="col l10 m10 s10">
+                                        <input type="text" ng-model="vm.product_details.size[$index]" style="margin:0; height: 35px; text-align: center;"></input>
+
+                                    </span>
+                                    <span class="right  l2 m2 s2" ng-hide="size_select.length == 1">
+                                        <a href ng-click="vm.product_details.size.splice($index, 1)"><i class="fa fa-times fa-2x"></i></a>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="center">
+                                <a ng-click="vm.add_row(vm.product_details.size, 'size', $event)"><i class="fa fa-plus fa-2x"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s12 m12 l12">
+                <p class="grey-text">Image (Optional)</p>
+                <ul class="collection col l12">
+                    <li class="collection-item" style="background: #FAFAFA;">
+                        <ul>
+                            <li ng-repeat="image_select in vm.product_details.image track by $index" style="padding-bottom:1em">
+                                <div class="row" style="margin-bottom:0px;">
+                                    <span class="col l6 m6 s6">
+                                        <div class="btn btn-default" ngf-select ngf-change="vm.upload($files,this,$index)">Select Image</div>
+                                    </span>
+                                    <span class="col l4 m4 s4">
+                                        <img class="right image_view{{$index}}" style="height:70px;width:auto; display:none;" ng-src="{{vm.product_details.image[$index]}}" />
+                                        <div class="preloader-wrapper small active right loader_view{{$index}}" style="display:none;">
+                                            <div class="spinner-layer spinner-blue-only">
+                                                <div class="circle-clipper left">
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="gap-patch">
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="circle-clipper right">
+                                                    <div class="circle"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+
+                                    <span class="right  l2 m2 s2" ng-hide="image_select.length == 1">
+                                        <a href ng-click="vm.product_details.image.splice($index, 1)"><i class="fa fa-times fa-2x"></i></a>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="center">
+                                <a ng-click="vm.add_row(vm.product_details.image, 'image', $event)"><i class="fa fa-plus fa-2x"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <div class="col l12">
-            <div class="col l6">        <!-- Size Input -->
-                <div class="col l2">
-                    <p><b>Size:</b></p>
-                    <i class="center fa fa-plus fa-2x" style="color:#34314c"></i>
-                </div>
-                <div class="col l10 input-field">
-                    <input class="col l12" type="text" placeholder="72 x 110 Inches/92 x 110 Inches">
-                    <input class="col l12" type="text" placeholder="12mm Open Wooden Hanger/ 12mm Anti-theft Wooden Hanger">
-                    <input class="col l12" type="text" placeholder="20 x 30 + 5 Inches">
-                </div>
-            </div>
-
-            <div class="col l6">        <!-- Color Input -->
-                <div class="col l2">
-                    <p><b>Color:</b></p>
-                    <i class="center fa fa-plus fa-2x" style="color:#34314c"></i>
-                </div>
-                <div class="col l10">
-                    <div class="col l10">
-                        <p style="width:100%; height:25px; background-color:white; border:1px black solid; text-align:center">White</p>
-                    </div>
-                    <div class="col l10">
-                        <p style="width:100%; height:25px; background-color:beige; border:1px black solid; text-align:center"">Beige</p>
-                    </div>
-                    <div class="col l10">
-                        <p style="width:100%; height:25px; background-color:yellow; border:1px black solid; text-align:center"">Yellow</p>
-                    </div>
-                    <div class="col l10">
-                        <p style="width:100%; height:25px; background-color:brown; border:1px black solid; text-align:center"">Brown</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-<<<<<<< HEAD
-=======
     </div>
     <div class="modal-footer">
         <a class="btn" style="background-color:#34314c;color:#ffc952" ng-click="vm.add_product();">Save</a>
-    </div>
-</div>
->>>>>>> 12c22f634fdf1fcc8c40b8e7c1e784104dab54f9
-
-        <div class="col l12">      <!-- Image Input -->
-            <div class="col l2">
-                <p><b>Image:</b></p>
-            </div>
-            <div class="col l10">
-                <img class="col l4 responsive-img" src="/assets/images/Bedroom/1.jpg" style="height:250px">
-                <img class="col l4 responsive-img" src="/assets/images/Bedroom/3.jpg" style="height:250px">
-                <img class="col l4 responsive-img" src="/assets/images/Bedroom/2.jpeg" style="height:250px">
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <a class="btn">Save</a>
     </div>
 </div>
