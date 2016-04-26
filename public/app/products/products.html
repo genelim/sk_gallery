@@ -14,26 +14,20 @@
     <div class="col l12 modal-content">
         <div class="col l6">
             <div class="col l12">
-                <img class="responsive-img" src="/assets/images/Bedroom/1.jpg">
+                <img class="responsive-img" src="{{vm.selected_product.image[0]}}">
             </div>
         </div>
         <div class="col l6">
-            <h5 class="fontheader1"><u>Bedsheet</u></h5>
+            <h5 class="fontheader1"><u>{{vm.selected_product.name}}</u></h5>
             <div class="col l12">
                 <p class="col l2"><b>Size :</b></p>
                 <select class="col l10 browser-default">
-                    <option>Single Size - (72 x 110 Inches)</option>
-                    <option>Super Single Size - (82 x 110 Inches)</option>
-                    <option>Queen Size - (86 x 110 Inches)</option>
-                    <option>King Size - (92 x 110 Inches)</option>
+                    <option ng-repeat="size in vm.selected_product.size">{{size}}</option>
                 </select>
             </div>
             <div class="col l12">
                 <p class="col l2"><b>Color :</b></p>
-                <p class="col l2" style="width:25px; height:25px; background-color:white; border: 1px solid black; margin-right:1%"></p>
-                <p class="col l2" style="width:25px; height:25px; background-color:beige; border: 2px solid black; margin-right:1%"></p>
-                <p class="col l2" style="width:25px; height:25px; background-color:brown; border: 1px solid black; margin-right:1%"></p>
-                <p class="col l2" style="width:25px; height:25px; background-color:maroon; border: 1px solid black; margin-right:1%"></p>
+                <p class="col l2"  ng-repeat="color in vm.selected_product.color" style="width:25px; height:25px; background-color:{{color}}; border: 1px solid black; margin-right:1%"></p>
             </div>
             <div class="col l12">
                 <p class="col l2"><b>Quantity :</b></p>
@@ -45,7 +39,7 @@
         <a class="col l12 center" style="color:#ffc952; cursor:pointer; font-size:140%;line-height:2"><b>Add to cart</b><i class="fa fa-shopping-cart" style="margin-left:1%;color:#ffc952"></i></a>
     </div>
 </div>
-
+<!--
 <div class="row modal" id="viewproduct2" style="width:80%">
     <div class="col l12 modal-content">
         <div class="col l6">
@@ -114,4 +108,4 @@
         </div>
         <a class="btn col l2" style="background-color:#34314c; color:#ffc952; cursor:pointer">Add to Cart<i class="fa fa-shopping-cart" style="margin-left:1%;color:#ffc952"></i></a>
     </div>
-</div>
+</div>-->
