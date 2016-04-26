@@ -19,11 +19,12 @@ function AdminProductController(Product_Main_Category, Upload, Product){
     vm.upload = upload;
 
     function add_product(){ 
-        Product.save(vm.product_details, function(result){
-            vm.products = result.response
-            Materialize.toast('Added New Product', 2000);
-            vm.product_details = {color:[],size:[],image:[],main_category:null,sub_category:null};
-        })     
+        console.log(vm.product_details)
+        // Product.save(vm.product_details, function(result){
+        //     vm.products = result.response
+        //     Materialize.toast('Added New Product', 2000);
+        //     vm.product_details = {color:[],size:[],image:[],main_category:null,sub_category:null};
+        // })     
     }
     
     function category_selected(category){
