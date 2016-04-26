@@ -8,15 +8,18 @@ function ProductsController(Product_Main_Category, $stateParams){
     var vm = this;
     $('.modal-trigger').leanModal();
     var vm = this;
-    vm.category = null;
+    vm.category = {main: null, sub: null};
     get_category();
     function get_category(){
         Product_Main_Category.query(function(result){
             for(var i = 0; i < result.response.length; i++){
                 if(result.response[i]._id === $stateParams.id){
                     vm.category.main = result.response[i].main_category;
-                    for(var a = 0; a < result.response[i].sub_category; a++){
-                        //get sub
+                    for(var a = 0; a < result.response[i].sub_category.length; a++){
+                        if(result.response[i].sub_category[a].name === $stateParams.name){
+                            vm.category.sub = result.response[i].sub_category[a].name;
+                            break;
+                        }
                     }
                     break;
                 }
