@@ -34,24 +34,7 @@
 
 <div class="row modal" id="adduser">
     <div class="col l12 modal-content">
-<<<<<<< HEAD
         <div class="col l12">
-            <div class="col 2">
-                <p><b>UserID:</b></p>
-            </div>
-            <div class="col l10 input-field">
-                <input type="text" placeholder="Enter your UserID Here">
-            </div>
-        </div>
-        <div class="col l12">
-            <div class="col l2">
-                <p><b>Password:</b></p>
-            </div>
-            <div class="col l10 input-field">
-                <input type="text" placeholder="Enter your Password Here">
-            </div>
-        </div>
-=======
             <div class="input-field col s6">
                 <input id="username" ng-model="vm.user.username" type="text">
                 <label for="username">Username</label>
@@ -60,7 +43,8 @@
                 <input id="usernpasswordame" ng-model="vm.user.password" type="password">
                 <label for="password">Password</label>
             </div>
->>>>>>> 12c22f634fdf1fcc8c40b8e7c1e784104dab54f9
+        </div>
+
         <div class="col l12 input-field">
             <div class="col l4">
                 <h5><b>Authority Level :</b></h5>
@@ -81,26 +65,13 @@
 
 <div class="row modal" id="edituser">
     <div class="col l12 modal-content">
-<<<<<<< HEAD
         <div class="col l12">
-            <div class="col l2">
-                <p><b>UserID:</b></p>
+            <div class="col l6 input-field">
+                <input type="text" ng-model="vm.user_selected.username">
             </div>
-            <div class="col l10 input-field">
-                <input type="text" placeholder="dennis">
+            <div class="col l6 input-field">
+                <input id="usernpasswordamee" ng-model="vm.user.password" type="password">
             </div>
-        </div>
-        <div class="col l12">
-            <div class="col l2">
-                <p><b>Password:</b></p>
-            </div>
-            <div class="col l10 input-field">
-                <input type="text" placeholder="1234">
-            </div>
-=======
-        <div class="col l12 input-field">
-            <input type="text" ng-model="vm.user_selected.username">
->>>>>>> 12c22f634fdf1fcc8c40b8e7c1e784104dab54f9
         </div>
         <div class="col l12 input-field">
             <div class="col l4">
@@ -116,7 +87,7 @@
         </div>
     </div>
     <div class="col l12 modal-footer">
-        <a class="btn" style="background-color:#34314c; color:#ffc952" ng-click="vm.edit_user()">Edit</a>
         <a class="btn" style="background-color:#34314c; color:#ffc952" ng-click="vm.delete_user()">Delete</a>
+        <a class="btn" style="background-color:#34314c; color:#ffc952; margin-right:1%" ng-click="vm.edit_user()">Edit</a>
     </div>
 </div>
