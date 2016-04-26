@@ -90,7 +90,6 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category, Up
         }else if(type === 'Sub'){
             var db_category = Product_Sub_Category;
         }
-        console.log(data)
         db_category.update({_id:data._id},data, function(res) {
             $('#edit_category').closeModal();
             Materialize.toast('Updated', 2000);
@@ -130,10 +129,10 @@ function AdminCategoryController(Product_Main_Category, Product_Sub_Category, Up
                     if(this.width > 300){
                         Upload.upload({url: '/api/upload_image', file: files[0]}).success(function (data, status, headers, config) {
                             vm.uploaded = true;
-                            if(vm.category_type === 'Main'){
-                                vm.image_link = data.path;
-                            }else{
+                            if(vm.category_type === 'Sub'){
                                 vm.edit_category_type.sub_category[vm.index].image = data.path
+                            }else{
+                                vm.image_link = data;
                             }
                         });
                     }else{
