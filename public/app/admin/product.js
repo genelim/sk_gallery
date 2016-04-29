@@ -26,9 +26,9 @@ function AdminProductController(Product_Main_Category, Upload, Product, Authenti
             vm.product_details.user = vm.user
             Product.save(vm.product_details, function(result){
                 vm.products = result.response
-                console.log(vm.products)
                 Materialize.toast('Added New Product', 2000);
                 vm.product_details = {color:[],size:[],image:[],main_category:null,sub_category:null};
+                $('#additem').closeModal()
             })  
         }else{
             Materialize.toast('Failed to authenticate user. Please relogin', 2000);     

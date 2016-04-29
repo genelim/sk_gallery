@@ -11,22 +11,24 @@
 	<link rel="stylesheet" href="/assets/libs/angular-bootstrap-colorpicker/css/colorpicker.min.css"></link>
 </head>
 <body ng-app="app">
-    <nav style="background-color: #34314c;">
-        <div class="nav-wrapper container">
-            <a href="/" class="brand-logo"><img class="responsive-img" src="/assets/images/logo.png" style="height:60px"></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li style="padding-right: 1.5em;">
-                    <form>
-                        <div class="search">
-                            <span class="fa fa-search"></span>
-                            <input type="text" class="form-controls" placeholder="Search" style="">
-                        </div>
-                    </form>                
-                </li>
-                <li><button class="btn z-depth-0" style="background-color: #47b8e0;"><i class="fa fa-shopping-cart left" style="height:36px; line-height:36px;"></i>Cart</button></li>               
-            </ul>
-        </div>
-    </nav>
+	<div class="navbar-fixed">
+		<nav style="background-color: #34314c;">
+			<div class="nav-wrapper container">
+				<a href="/" class="brand-logo"><img class="responsive-img" src="/assets/images/logo.png" style="height:60px"></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li style="padding-right: 1.5em;">
+						<form>
+							<div class="search">
+								<span class="fa fa-search"></span>
+								<input type="text" class="form-controls" placeholder="Search" style="">
+							</div>
+						</form>                
+					</li>
+					<li><button class="btn z-depth-0" style="background-color: #47b8e0;"><i class="fa fa-shopping-cart left" style="height:36px; line-height:36px;"></i>Cart</button></li>               
+				</ul>
+			</div>
+		</nav>
+	</div>
 	<div ui-view></div>
     
     <script src="assets/libs/angular/angular.min.js"></script>
