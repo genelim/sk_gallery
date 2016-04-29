@@ -43,7 +43,10 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
     })
     .state('admin', {
         url:'/admin',
-        templateUrl: 'app/admin/admin.html',        
+        templateUrl: 'app/admin/admin.html',       
+        resolve: {
+            authenticate : check_user
+        }
     })
     .state('admin.dashboard', {
         url: '/dashboard',
@@ -78,10 +81,21 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
 
     .state('sk_login', {
         url: '/sk_login',
-        templateUrl: 'app/sk_login/sk_login.html'
+        templateUrl: 'app/sk_login/sk_login.html',
+        controller: 'AdminLoginController',
+        controllerAs: 'vm'
     });
 
     $locationProvider.html5Mode({
         enabled: true
     });
+}
+
+function check_user($location, Authenticate){
+    Authenticate.then(function(result){
+        console.log(result)
+        if(result.data === '0'){
+            $location.path('/')
+        }
+    })
 }

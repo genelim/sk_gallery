@@ -3,11 +3,22 @@ var user        = require('./controllers/user'),
     upload      = require('./controllers/upload'),
     product     = require('./controllers/product');
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
+    passport.serializeUser(function(user, done) {
+        done(null, user);
+    });
+    passport.deserializeUser(function(user, done) {
+        done(null, user);
+    });
+    
+    //users
     app.get('/api/user', user.get_user);
     app.post('/api/user', user.save_user);
     app.put('/api/user', user.update_user);
     app.delete('/api/user/:id', user.delete_user);
+    app.post('/api/login', user.login);
+    app.post('/api/authenticate', user.authenticate);
+    app.post('/api/logout', user.logout);
     
     //product__main_category
     app.post('/api/main_category', category.insert_main_category);

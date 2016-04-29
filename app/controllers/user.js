@@ -45,3 +45,34 @@ exports.delete_user = function (req, res) {
         }
     })
 };
+
+exports.login = function (req, res) {
+    User.findOne({username: req.body.username}).exec(function(err,user){
+        if(err){
+            res.json({response:'Server Error'});
+        }else if(!user){
+            res.json({response:'Invalid Username or Password'});
+        }else{
+            if(bcrypt.compareSync(req.body.username, user.password)){
+                req.login(user, function(error){
+                    if(error){
+                        res.json({response:'Server Error'});
+                    }else{
+                        res.json({response:user})
+                    }
+                })
+            }else{
+                res.json({response:'Invalid Username or Password'});
+            }
+        }
+    })
+};
+
+exports.authenticate = function(req, res){
+    res.json(req.isAuthenticated() ? req.user : '0');
+}
+
+exports.logout = function(req, res){
+    req.logOut();
+    res.json({response: true})
+}
