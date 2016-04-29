@@ -43,7 +43,9 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
     })
     .state('admin', {
         url:'/admin',
-        templateUrl: 'app/admin/admin.html',       
+        templateUrl: 'app/admin/admin.html',    
+        controller: 'AdminController',
+        controllerAs: 'vm',   
         resolve: {
             authenticate : check_user
         }
