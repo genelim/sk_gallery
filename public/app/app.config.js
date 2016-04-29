@@ -74,8 +74,13 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
         templateUrl: 'app/cart/cart.html',
         controller: 'CartController',
         controllerAs: 'vm'
+    })
+
+    .state('sk_login', {
+        url: '/sk_login',
+        templateUrl: 'app/sk_login/sk_login.html'
     });
-    
+
     $locationProvider.html5Mode({
         enabled: true
     });

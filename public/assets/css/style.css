@@ -156,3 +156,14 @@ html {
     cursor: pointer;
     margin: 0 auto;
 }
+
+.button {
+    color:#ffc952;
+    background-color:#34314c;
+    border:1px solid black;
+    border-radius:50px;
+    cursor:pointer;
+    text-align:center;
+    vertical-align:middle;
+    font-size:140%;
+}
