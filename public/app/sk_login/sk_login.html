@@ -3,14 +3,14 @@
         <div class="col l4 push-l4" style="margin-top:15%">
             <div class="col l12 input-field">
                 <label for="userid">User ID:</label>
-                <input type="text" id="userid">
+                <input type="text" ng-model="vm.user.username">
             </div>
             <div class="col l12 input-field">
                 <label for="pass">Password:</label>
-                <input type="password" id="pass">
+                <input type="password" ng-model="vm.user.password">
             </div>
             <div class="col l12">
-                <a class="col l4 push-l4 button">Login</a>
+                <a class="col l4 push-l4 button" ng-click="vm.login()">Login</a>
             </div>
         </div>
     </div>
