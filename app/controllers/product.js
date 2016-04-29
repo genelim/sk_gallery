@@ -10,7 +10,7 @@ exports.add_product = function (req, res) {
 	new_product.image = req.body.image;
 	new_product.sub_category = req.body.sub_category;
 	new_product.main_category = req.body.main_category._id;
-	// new_product.user = req.body.user._id;
+	new_product.user = req.body.user._id;
 	
 	new_product.save(function(err, category) {
 		if(err){

@@ -2,9 +2,9 @@ angular
     .module('app')
     .controller('AdminProductController', AdminProductController);
 
-AdminProductController.$inject = ['Product_Main_Category', 'Upload', 'Product'];
+AdminProductController.$inject = ['Product_Main_Category', 'Upload', 'Product', 'Authenticate','$state'];
 
-function AdminProductController(Product_Main_Category, Upload, Product){
+function AdminProductController(Product_Main_Category, Upload, Product, Authenticate, $state){
     var vm = this;
     $('.modal-trigger').leanModal();
     vm.add_product = add_product;
@@ -12,19 +12,28 @@ function AdminProductController(Product_Main_Category, Upload, Product){
     vm.category = null;
     vm.new_product = null;
     vm.products = null;
-    
+    vm.user = null;
+    Authenticate.then(function(result){
+        vm.user = result.data
+    })
     vm.product_details = {color:[],size:[],image:[],main_category:null,sub_category:null};
     vm.add_row = add_row;
     vm.category_selected = category_selected;
     vm.upload = upload;
 
     function add_product(){ 
-        // console.log(vm.product_details)
-        Product.save(vm.product_details, function(result){
-            vm.products = result.response
-            Materialize.toast('Added New Product', 2000);
-            vm.product_details = {color:[],size:[],image:[],main_category:null,sub_category:null};
-        })     
+        if(vm.user){
+            vm.product_details.user = vm.user
+            Product.save(vm.product_details, function(result){
+                vm.products = result.response
+                console.log(vm.products)
+                Materialize.toast('Added New Product', 2000);
+                vm.product_details = {color:[],size:[],image:[],main_category:null,sub_category:null};
+            })  
+        }else{
+            Materialize.toast('Failed to authenticate user. Please relogin', 2000);     
+            $state.go('sk_login')       
+        }           
     }
     
     function category_selected(category){

@@ -93,7 +93,6 @@ function Configuration($urlRouterProvider,$stateProvider,$locationProvider) {
 
 function check_user($location, Authenticate){
     Authenticate.then(function(result){
-        console.log(result)
         if(result.data === '0'){
             $location.path('/')
         }
