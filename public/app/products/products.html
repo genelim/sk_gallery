@@ -12,30 +12,26 @@
 
 <div class="row modal" id="viewproduct" style="width:80%">
     <div class="col l12 modal-content">
-        <div class="col l6">
+        <div class="col l6 slider">
             <div class="col l12">
-                <img class="responsive-img" src="{{vm.selected_product.image[0]}}">
+                <ul class="slides">
+                    <li><img class="z-depth-2 responsive-img" src="{{vm.selected_product.image[0]}}"></li>
+                </ul>
             </div>
         </div>
         <div class="col l6">
-            <h5 class="fontheader1"><u>{{vm.selected_product.name}}</u></h5>
+            <h5 style="font-size:200%;font-weight:bold">{{vm.selected_product.name}}</h5>
             <div class="col l12">
-                <p class="col l2"><b>Size :</b></p>
-                <select class="col l10 browser-default">
+                <p class="col l12" style="font-size:120%"><b>Product Size & Color:</b></p>
+                <!--<p class="col l12" ng-repeat="size in vm.selected_product.size">{{size}}</p>-->
+                <select class="col l12 browser-default">
                     <option ng-repeat="size in vm.selected_product.size">{{size}}</option>
                 </select>
             </div>
-            <div class="col l12">
-                <p class="col l2"><b>Color :</b></p>
-                <p class="col l2"  ng-repeat="color in vm.selected_product.color" style="width:25px; height:25px; background-color:{{color}}; border: 1px solid black; margin-right:1%"></p>
-            </div>
-            <div class="col l12">
-                <p class="col l2"><b>Quantity :</b></p>
-                <input class="col l4" type="number" placeholder="2">
-            </div>
-            <div class="col l12 center">
-                <a class="col l4 button"><b style="margin-right:1%">Add to cart</b>|<i class="fa fa-shopping-cart" style="margin-left:1%;color:#ffc952"></i></a>
-            </div>
+            <!--<div class="col l12">-->
+                <!--<p class="col l2"><b>Color :</b></p>-->
+                <!--<p class="col l2"  ng-repeat="color in vm.selected_product.color" style="width:25px; height:25px; background-color:{{color}}; border: 1px solid black; margin-right:1%"></p>-->
+            <!--</div>-->
         </div>
     </div>
 </div>
