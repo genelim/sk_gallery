@@ -28,3 +28,27 @@ exports.get_product = function (req, res) {
 		res.json({response:product});
 	})
 };
+
+exports.update_product = function (req, res) {
+    Product.findOneAndUpdate({_id : req.body._id},{$set: req.body},{upsert:true},function(err){
+        if(err){
+            console.log(err);
+        }else{
+            Product.find().exec(function(err, product){
+                res.json({response:product});
+            })
+        }
+    });
+};
+
+exports.delete_product = function (req, res) {    
+    Product.remove({_id : req.params.id},function(err){
+        if(err){
+            console.log(err);
+        }else{
+            Product.find().exec(function(err, product){
+                res.json({response:product});
+            })
+        }
+    });
+};

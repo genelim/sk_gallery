@@ -7,7 +7,10 @@ var mongoose = require('mongoose'),
 module.exports = mongoose.model('Product', {
     name 		    : String,
     color 		    : [String],
-    size            : [String],
+    size            : [{
+                          name: String,
+                          color: String
+                      }],
     image           : [String],
 	sub_category 	: String,
     main_category   : { type: Schema.Types.ObjectId, ref: 'Category' },

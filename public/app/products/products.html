@@ -14,28 +14,41 @@
     <div class="col l12 modal-content">
         <div class="col l6">
             <div class="col l12">
-                <img class="responsive-img" src="{{vm.selected_product.image[0]}}">
+                <!--<img class="responsive-img" src="{{vm.selected_product.image[0]}}">-->
+                <div class="slider">
+					<ul class="slides">
+						<li ng-repeat="image in vm.selected_product.image track by $index">
+							<img ng-src="{{image}}">
+						</li>
+					</ul>
+				</div>
             </div>
         </div>
         <div class="col l6">
-            <h5 class="fontheader1"><u>{{vm.selected_product.name}}</u></h5>
+            <h5 class="fontheader1 col l12"><u>{{vm.selected_product.name}}</u></h5>
             <div class="col l12">
-                <p class="col l2"><b>Size :</b></p>
-                <select class="col l10 browser-default">
-                    <option ng-repeat="size in vm.selected_product.size">{{size}}</option>
-                </select>
-            </div>
-            <div class="col l12">
-                <p class="col l2"><b>Color :</b></p>
-                <p class="col l2"  ng-repeat="color in vm.selected_product.color" style="width:25px; height:25px; background-color:{{color}}; border: 1px solid black; margin-right:1%"></p>
-            </div>
-            <div class="col l12">
-                <p class="col l2"><b>Quantity :</b></p>
-                <input class="col l4" type="number" placeholder="2">
-            </div>
-            <div class="col l12 center">
-                <a class="col l4 button"><b style="margin-right:1%">Add to cart</b>|<i class="fa fa-shopping-cart" style="margin-left:1%;color:#ffc952"></i></a>
+                <p class="row"><b>Variation :</b></p>                
+                <div ng-repeat="color in vm.selected_product.color">
+                    <select class="col l10 browser-default">
+                        <option ng-repeat="size in vm.selected_product.size" ng-if="size.color === color">{{size.name}}</option>
+                    </select>
+                    <div class="col l2"   style="width:40px; height:40px; background-color:{{color}}; border: 1px solid black; margin-right:1%"></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+	.slider .indicators .indicator-item {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        height: 10px;
+        width: 60px;
+        margin: 0 12px;
+        background-color: #e0e0e0;
+        transition: background-color .3s;
+        border-radius: 0%; 
+    }
+</style>

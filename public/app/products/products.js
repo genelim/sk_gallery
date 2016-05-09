@@ -30,14 +30,19 @@ function ProductsController(Product_Main_Category, $stateParams, Product){
             }
         })
     }
+    
     function get_product(){
         Product.query(function(result){
             vm.products = result.response
+
         })
     }
     
     function open_product_modal(product){
         vm.selected_product = product
         $('#viewproduct').openModal()
+        setTimeout(function() {
+            $('.slider').slider({full_width: true});            
+        }, 100);
     }
 }

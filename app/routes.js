@@ -33,6 +33,8 @@ module.exports = function(app, passport) {
     //product
     app.post('/api/product', product.add_product);
     app.get('/api/product', product.get_product);
+    app.put('/api/product', product.update_product);
+    app.delete('/api/product/:id', product.delete_product);
 
     //image upload
     app.post('/api/upload_image', upload.upload_image);    
