@@ -8,6 +8,8 @@ function ProductsController(Product_Main_Category, $stateParams, Product){
     var vm = this;
     $('.modal-trigger').leanModal();
     var vm = this;
+    $('.slider').slider({full_width: true});
+    var vm = this;
     vm.category = {main: null, sub: null};
     vm.products = [];
     vm.selected_product = [];

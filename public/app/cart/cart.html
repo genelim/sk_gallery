@@ -13,7 +13,7 @@
                 </thead>
                 <tbody>
                     <tr style="font-size:120%">
-                        <td><img class="z-depth-2" style="height:200px;" src="assets/images/Bedroom/1.jpg"></td>
+                        <td><img class="z-depth-2 responsive-img" style="width:300px;height:200px;" src="assets/images/Bedroom/1.jpg"></td>
                         <td>
                             <div class="col l12">
                                 <b class="itemfont"><u>Bedsheet</u></b>
@@ -39,7 +39,7 @@
                         <td><input class="col l12 center" length="3" min="1" size="3" placeholder="2" maxlength="3"></td>
                     </tr>
                     <tr style="font-size:120%">
-                        <td><img class="z-depth-2" style="height:200px" src="assets/images/Bedroom/3.jpg"></td>
+                        <td><img class="z-depth-2 responsive-img" style="width:300px;height:200px" src="assets/images/Bedroom/3.jpg"></td>
                         <td>
                             <div class="col l12">
                                 <b class="itemfont"><u>Bedsheet</u></b>
@@ -73,52 +73,29 @@
 
 <div class="row modal" id="enquiry" style="width:80%;height:500px">
     <div class="col l12">
-        <form>
-            <div class="col l6 input-field">
-                <input id="name" placeholder="Lim Cheong Un">
-            </div>
-            <div class="col l6 input-field">
-                <input id="billaddress" placeholder="Billing Address">
-            </div>
-            <div class="col l6 input-field">
-                <input id="shipaddress" placeholder="Shipping Address">
-            </div>
+        <div class="col l12">                       <!--Top row contains name, phone, email and company-->
             <div class="col l4 input-field">
-                <input id="email" placeholder="abc@abc.com">
+                <label for="name">Name:</label>
+                <input type="text" id="name">
             </div>
-            <div class="col l4 input-field">
-                <input id="phone" placeholder="0123456789">
+            <div class="col l3 input-field">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone">
             </div>
-            <div class="col l4 input-field">
-                <input id="company" placeholder="Household/Restaurant/Hotel/Group">
+            <div class="col l3 input-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email">
             </div>
-        </form>
-        <div class="col l6">
-            <table>
-                <thead>
-                <tr>
-                    <td><b>Items</b></td>
-                    <td></td>
-                    <td><b>Quantity</b></td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><img class="z-depth-2" style="height:100px;" src="assets/images/Bedroom/1.jpg"></td>
-                    <td><div class="col l12"><b><u>Super Single Size Bedsheet</u></b></div>
-                        <div class="col l12"><b class="col l3">Size :</b>72 x 90 Inches</div>
-                        <div class="col l12"><b class="col l3">Color :</b><p class="col l2" style="width:25px;height:25px;bottom: 0;background-color:silver; cursor:pointer; border: 2px solid black"></p></div>
-                    </td>
-                    <td style="text-align:center"><b>2</b></td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="col l2 input-field">
+                <label for="company">Comapny</label>
+                <input type="text" id="company">
+            </div>
         </div>
-        <div class="col l6">
-            <textarea style="height:300px;resize:none" ng-model="vm.product.remarks"></textarea>
-        </div>
-        <div class="col l12 modal-footer">
-            <a class="btn" style="background-color:#34314c;color:#ffc952">Send | <i class="fa fa-envelope" style="color:#ffc952"></i></a>
+
+        <div class="col l12">                       <!--2nd Row-->
+            <div class="col l12">
+                
+            </div>
         </div>
     </div>
 </div>
