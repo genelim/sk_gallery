@@ -8,7 +8,6 @@ function CollectionController(Product_Main_Category, $stateParams){
     var vm = this;
     vm.main_category = null;
     get_category();
-    console.log($stateParams)
     function get_category(){
         Product_Main_Category.query(function(result){
             for(var i = 0; i < result.response.length; i++){

@@ -44,7 +44,7 @@ function ProductsController(Product_Main_Category, $stateParams, Product){
         vm.selected_product = product
         $('#viewproduct').openModal()
         setTimeout(function() {
-            $('.slider').slider({full_width: true});            
+            $('.slider').slider();            
         }, 100);
     }
 }

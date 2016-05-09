@@ -13,16 +13,11 @@
 <div class="row modal" id="viewproduct" style="width:80%">
     <div class="col l12 modal-content">
         <div class="col l6 slider">
-            <div class="col l12">
-                <!--<img class="responsive-img" src="{{vm.selected_product.image[0]}}">-->
-                <div class="slider">
-					<ul class="slides">
-						<li ng-repeat="image in vm.selected_product.image track by $index">
-							<img ng-src="{{image}}">
-						</li>
-					</ul>
-				</div>
-            </div>
+            <ul class="slides">
+                <li ng-repeat="image in vm.selected_product.image">
+                    <img ng-src="{{image}}">
+                </li>
+            </ul>
         </div>
         <div class="col l6">
             <h5 class="fontheader1 col l12"><u>{{vm.selected_product.name}}</u></h5>
