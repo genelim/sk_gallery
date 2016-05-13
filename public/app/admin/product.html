@@ -16,8 +16,8 @@
                         <th data-field="">Select</th>
                         <th data-field="image">Image</th>
                         <th data-field="name">Product Name</th>
-                        <th data-field="color">Color</th>
-                        <th data-field="size">Size</th>
+                        <!--<th data-field="color">Color</th>
+                        <th data-field="size">Size</th>-->
                         <th data-field="">Action</th>
                     </tr>
                 </thead>
@@ -26,16 +26,17 @@
                         <td><input type="checkbox" id="{{product._id}}"><label for="{{product._id}}"></label></td>
                         <td><img class="responsive-img" style="height:150px" ng-src="{{product.image[0]}}"></td>
                         <td>{{product.name}}</td>
-                        <td>
-                            <select class="browser-default" ng-model="vm.selected_color" ng-options="color for color in product.color" ng-change="vm.change_color(vm.selected_color)">
+                        <!--<td>
+                            <select class="browser-default" ng-model="vm.selected_color" ng-options="color for color in product.color" ng-change="vm.change_color($index,vm.selected_color)">
                             </select>
                         </td>
                         <td>
-                            <div ng-if="vm.sizes_selected.length" class="col l2"   style="width:40px; height:40px; background-color:{{vm.sizes_selected[0].color}}; border: 1px solid black; margin-right:1%"></div>
+                            <div ng-if="vm.sizes_selected.length && vm.sizes_selected[0].index === $index" class="col l2"   style="width:40px; height:40px; background-color:{{vm.sizes_selected[0].color.color}}; border: 1px solid black; margin-right:1%"></div>
                             <select class="browser-default col l10">
-                                <option ng-repeat="size in vm.sizes_selected">{{size.name}}</option>
+                                <option ng-repeat="size in vm.sizes_selected" ng-if="size.index === $index" >{{size.index}}</option>
                             </select>
-                        </td>
+                            
+                        </td>-->
                         <td><a class="btn modal-trigger" ng-click="vm.edit_prooduct_modal(product)" style="background-color:#47b8e0"><i class="fa fa-pencil fa-3x"></i></a></td>
                     </tr>
                 </tbody>

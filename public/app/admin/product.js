@@ -26,12 +26,13 @@ function AdminProductController(Product_Main_Category, Upload, Product, Authenti
     vm.delete_product = delete_product;
     vm.sizes_selected = [];
 
-    function change_color(color){
+    function change_color(index,color){
+        console.log(index)
         vm.sizes_selected = []
         for(var i = 0; i < vm.products.length; i++){
             for(var a =0; a < vm.products[i].size.length; a++){
                 if(vm.products[i].size[a].color === color){
-                    vm.sizes_selected.push(vm.products[i].size[a])
+                    vm.sizes_selected.push({color:vm.products[i].size[a], index:index})
                 }
                 
             }
