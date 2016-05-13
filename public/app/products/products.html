@@ -23,12 +23,15 @@
             <h5 class="fontheader1 col l12"><u>{{vm.selected_product.name}}</u></h5>
             <div class="col l12">
                 <p class="row"><b>Variation :</b></p>                
-                <div ng-repeat="color in vm.selected_product.color">
+                <div ng-repeat="color in vm.selected_product.color" ng-if="vm.selected_product.color.length">
                     <select class="col l10 browser-default">
                         <option ng-repeat="size in vm.selected_product.size" ng-if="size.color === color">{{size.name}}</option>
                     </select>
                     <div class="col l2"   style="width:40px; height:40px; background-color:{{color}}; border: 1px solid black; margin-right:1%"></div>
                 </div>
+                <select class="col l10 browser-default" ng-if="!vm.selected_product.color.length">
+                    <option ng-repeat="size in vm.selected_product.size">{{size.name}}</option>
+                </select>
             </div>
         </div>
     </div>
