@@ -30,9 +30,11 @@
                     </select>
                     <div class="col l2"   style="width:40px; height:40px; background-color:{{color}}; border: 1px solid black; margin-right:1%"></div>
                 </div>
-                <select class="col l10 browser-default" ng-if="!vm.selected_product.color.length">
-                    <option ng-repeat="size in vm.selected_product.size">{{size.name}}</option>
+                <select class="col l10 browser-default" ng-if="vm.no_color">
+                    <option ng-repeat="size in vm.selected_product.size" ng-if="!size.color">{{size.name}}</option>
                 </select>
+                <div class="col l2"   ng-if="vm.no_color" style="width:auto; height:40px; border: 1px solid black; margin-right:1%">No Color</div>
+                
             </div>
         </div>
     </div>

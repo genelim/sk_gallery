@@ -16,6 +16,8 @@ function ProductsController(Product_Main_Category, $stateParams, Product){
     vm.open_product_modal = open_product_modal;
     get_category();
     get_product();
+    vm.no_color = false; 
+    
     function get_category(){
         Product_Main_Category.query(function(result){
             for(var i = 0; i < result.response.length; i++){
@@ -42,7 +44,13 @@ function ProductsController(Product_Main_Category, $stateParams, Product){
     
     function open_product_modal(product){
         vm.selected_product = product
+        vm.no_color = false
         $('#viewproduct').openModal()
+        for(var i = 0; i < product.size.length; i++){
+            if(product.size[i].color === ''){
+                vm.no_color = true;
+            }
+        }
         setTimeout(function() {
             $('.slider').slider();            
         }, 100);
